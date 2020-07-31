@@ -1,0 +1,70 @@
+.equation {
+    display: flex;
+    align-items: center;
+}
+
+.equation:target {
+    font-weight: bold;
+}
+
+.equation_inner {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+figcaption {
+    margin: 10px 0 0 0;
+    font-variant: small-caps;
+    font-family: Arial;
+    font-weight: bold;
+    color: #bb3333;
+}
+
+figcaption object {
+    vertical-align: middle;
+}
+
+figure {
+    padding: 5px;
+}
+
+figure > object {
+    width: 100%;
+}
+
+figure > object:hover {
+    transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+figure > object {
+    transition: transform 0.2s;
+    -webkit-transition: -webkit-transform 0.2s;
+    -moz-transition: -moz-transform 0.2s;
+    -o-transition: -o-transform 0.2s;
+}
+
+.bib2xhtml a:target {
+    color: black;
+    #background-color: #DDD;
+    font-weight: bold;
+    margin-top: 40px;
+    position: relative;
+    padding-top: 100px;
+}
+
+.bib2xhtml dd {
+    margin-bottom: 20px;
+}
+
+.equation_inline {
+    transform: translateY(50%); 
+    margin-left: 3px; 
+    margin-right: 3px;
+}
