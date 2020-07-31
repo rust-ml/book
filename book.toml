@@ -1,0 +1,18 @@
+[book]
+authors = ["Lorenz Schmidt"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Rust Machine Learning Book"
+
+[preprocessor.scientific]
+# Only run the `foo` preprocessor for the HTML renderer
+renderer = ["html"]
+
+bibliography = "literature.bib"
+bib2xhtml = "path"
+
+assets = "src/"
+
+[output.html]
+additional-css = ["src/scientific.css"]
