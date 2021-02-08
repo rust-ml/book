@@ -10,8 +10,8 @@ use crate::error::{Error, Result};
 /// Convert input string to 24 character hash
 pub fn hash(input: &str) -> String {
     let mut sh = Sha256::new();
-    sh.input(input.as_bytes());
-    let mut out = format!("{:x}", sh.result());
+    sh.update(input.as_bytes());
+    let mut out = format!("{:x}", sh.finalize());
     out.truncate(24);
     out
 }
@@ -324,4 +324,4 @@ pub fn bib_to_html(source: &str, bib2xhtml: &str) -> Result<String> {
     out.push_str("```\n");
 
     Ok(out)
-}*/
+*/

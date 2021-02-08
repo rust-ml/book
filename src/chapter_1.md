@@ -2,7 +2,7 @@
 
 A simple demonstration of latex and gnuplot integration into `mdbook`.
 
-$$latex, hyperplane, Influence of an outlier to the seperating hyperplane, note that a single support vector changes the border completely$$
+$$latex, hyperplane, Influence of an outlier to the separating hyperplane, note that a single support vector changes the border completely$$
 
 This is a test to $ref:fig:hyperplane$ blub.
 

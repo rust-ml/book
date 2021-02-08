@@ -11,6 +11,6 @@ mdbook = { version = "0.3", default-features = false }
 clap = "*"
 serde = "*"
 serde_json = "*"
-sha2 = "*"
+sha2 = "0.9"
 nom-bibtex = "*"
 which = { version = "3", default-features = false }
