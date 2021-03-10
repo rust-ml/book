@@ -31,3 +31,9 @@ $ mdbook build --open
 ```
 
 in order to open it afterwards.
+
+Code samples contained in the `code/` directory, and can be run individually using:
+```bash
+$ cd code/
+$ cargo run --example name_of_algorithm
+```

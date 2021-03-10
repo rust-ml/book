@@ -1,5 +1,5 @@
 [book]
-authors = ["Lorenz Schmidt"]
+authors = ["Lorenz Schmidt", "Christopher Moran"]
 language = "en"
 multilingual = false
 src = "src"
@@ -12,7 +12,8 @@ renderer = ["html"]
 bibliography = "literature.bib"
 bib2xhtml = ""
 
-assets = "src/"
+# assets = "src/"
+assets = "mdbook-scientific"
 
 [output.html]
 additional-css = ["src/scientific.css"]
