@@ -17,3 +17,4 @@ Each of those code examples are located in the `code/` directory, and can be run
 user@computer:~/rust-ml/book$ cd code/
 user@computer:~/rust-ml/book/code$ cargo run --release --example kmeans
 ```
+
