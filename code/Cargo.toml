@@ -9,6 +9,6 @@ edition = "2018"
 [dependencies]
 plotters = "0.3"
 ndarray = "0.13"
-linfa = "0.3"
-linfa-clustering = "0.3"
-rand = { version = "0.7", features = ["small_rng"] }
+linfa = {git = "https://github.com/rust-ml/linfa", branch = "master"}
+linfa-clustering = { git = "https://github.com/rust-ml/linfa/", branch = "master"}
+rand = "0.7"
