@@ -26,4 +26,4 @@ COPY --from=cargo-build /home/rust/.cargo/bin/mdbook-scientific /bin/mdbook-scie
 WORKDIR /github/workspace/
 ENTRYPOINT ["mdbook"]
 
-# docker run --rm -it -v $(pwd):/github/workspace liufuyang/mdbook-scientific:0.4.7 build
+# docker run --rm -it -v $(pwd):/github/workspace liufuyang/mdbook-scientific:0.3.7 build
