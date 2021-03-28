@@ -55,3 +55,16 @@ pub fn create_hollow_circle(
 
     data
 }
+
+// Check the array has the correct shape for plotting (Two-dimensional, with 2 columns)
+pub fn check_array_for_plotting(arr: &Array2<f32>) -> bool {
+    if (arr.shape().len() != 2) || (arr.shape()[1] != 2) {
+        panic!(
+            "Array shape of {:?} is incorrect for 2D plotting!",
+            arr.shape()
+        );
+        // false
+    } else {
+        true
+    }
+}
