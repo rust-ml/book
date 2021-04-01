@@ -10,7 +10,7 @@ title = "Rust Machine Learning Book"
 renderer = ["html"]
 
 bibliography = "literature.bib"
-bib2xhtml = ""
+bib2xhtml = "/github/bib2xhtml/"
 
 # assets = "src/"
 assets = "mdbook-scientific"

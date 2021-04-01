@@ -16,8 +16,8 @@ Conversely, we don't assume an in-depth knowledge of machine learning (i.e. math
 
 Each chapter's code sample will be available in its entirety in the `code/` directory, and can be run independently of the book. For example, to run the entirety of the code example for the KMeans algorithm, the steps would look like the following:
 ```bash
-user@computer:~/rust-ml/book$ cd code/
-user@computer:~/rust-ml/book/code$ cargo run --release --example kmeans
+user@computer:~/rust-ml/book cd code/
+user@computer:~/rust-ml/book/code cargo run --release --example kmeans
 ```
 
 ## An additional note
