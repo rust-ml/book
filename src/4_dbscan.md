@@ -13,9 +13,9 @@ Before getting into the code, let's examine how these differences in approach pl
 
 This example[^1] demonstrates two of the major strengths of DBSCAN over an algorithm like KMeans; it is able to automatically detect the number of clusters that meet the set of given parameters. Keep in mind that this doesn't mean DBSCAN require less information about the dataset, but rather that the information it does require differs from an algorithm like KMeans.
 
-DBSCAN does a great job at finding clustering that are spatially contiguous, but not necessarily confined to single region. This is where the "and Noise" part of the algorithm's name comes in. Especially in real-world data, there's often data that won't fit well into a given cluster. These can be outliers or points that don't demonstrate good alignment with any of the main clusters. DBSCAN doesn't require that they do. Instead, it will simply give them a cluster label of `None` (in our example, these are graphically the black points). 
+DBSCAN does a great job at finding clustering that are spatially contiguous, but not necessarily confined to single region. This is where the "and Noise" part of the algorithm's name comes in. Especially in real-world data, there's often data that won't fit well into a given cluster. These can be outliers or points that don't demonstrate good alignment with any of the main clusters. DBSCAN doesn't require that they do. Instead, it will simply give them a cluster label of `None` (in our example, these are graphically the black points). However, DBSCAN does a good job at analyzing existing information, it doesn't predict new data, which is one of its main drawbacks
 
-Comparatively, KMeans will take into account each point in the dataset, which means outliers can negatively affect the local optimal location for a given cluster's centroid in order to accommodate them. 
+Comparatively, KMeans will take into account each point in the dataset, which means outliers can negatively affect the local optimal location for a given cluster's centroid in order to accommodate them. Euclidean space is linear, which means that small changes in the data result in proportionately small changes to the position of the centroids. This is problematic when there are outliers in the data.
 
 ### Using DSBCAN with `linfa`
 
@@ -29,7 +29,7 @@ Instead of having a several higher-density clusters different areas, we'll take 
 ```rust,no_run
 {{#include ../code/examples/dbscan.rs:create_circles}}
 ```
-Compared to `linfa`'s KMeans algorithm, the DBSCAN implementation is able to operate directly on a ndarray `Array2` data structure, so there's no need to convert it into the `linfa`-native `Dataset` type first. It's also worth pointing out that choosing the chosen parameters often take some experimentation and tuning before they produce results that actually make sense. This is one of the areas where data visualization can be really valuable; it is helpful in developing some physical intuition about your data set and understand how your choice of hyperparameters will affect the results produced by the algorithm.  
+Compared to `linfa`'s KMeans algorithm, the DBSCAN implementation is able to operate directly on a ndarray `Array2` data structure, so there's no need to convert it into the `linfa`-native `Dataset` type first. It's also worth pointing out that choosing the chosen parameters often take some experimentation and tuning before they produce results that actually make sense. This is one of the areas where data visualization can be really valuable; it is helpful in developing some spatial intuition about your data set and understand how your choice of hyperparameters will affect the results produced by the algorithm.  
 
 ```rust,no_run
 {{#include ../code/examples/dbscan.rs:create_and_run_model}}
