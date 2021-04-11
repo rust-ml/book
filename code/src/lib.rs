@@ -1,5 +1,6 @@
 use ndarray::prelude::*;
 use rand::prelude::*;
+use std::f32;
 
 // Creates random points contained in an approximately square area
 pub fn create_square(center_point: [f32; 2], edge_length: f32, num_points: usize) -> Array2<f32> {
@@ -14,4 +15,56 @@ pub fn create_square(center_point: [f32; 2], edge_length: f32, num_points: usize
     }
 
     data
+}
+
+// Creates a circle of random points
+pub fn create_circle(center_point: [f32; 2], radius: f32, num_points: usize) -> Array2<f32> {
+    let mut data: Array2<f32> = Array2::zeros((num_points, 2));
+    let mut rng = rand::thread_rng();
+    for i in 0..num_points {
+        let theta = rng.gen_range(0.0, 2.0 * f32::consts::PI);
+        let r = rng.gen_range(0.0, radius);
+        let x = r * f32::cos(theta);
+        let y = r * f32::sin(theta);
+
+        data[[i, 0]] = center_point[0] + x;
+        data[[i, 1]] = center_point[1] + y;
+    }
+
+    data
+}
+
+// Creates a hollow circle of random points with a specified inner and outer diameter
+pub fn create_hollow_circle(
+    center_point: [f32; 2],
+    radius: [f32; 2],
+    num_points: usize,
+) -> Array2<f32> {
+    assert!(radius[0] < radius[1]);
+    let mut data: Array2<f32> = Array2::zeros((num_points, 2));
+    let mut rng = rand::thread_rng();
+    for i in 0..num_points {
+        let theta = rng.gen_range(0.0, 2.0 * f32::consts::PI);
+        let r = rng.gen_range(radius[0], radius[1]);
+        let x = r * f32::cos(theta);
+        let y = r * f32::sin(theta);
+
+        data[[i, 0]] = center_point[0] + x;
+        data[[i, 1]] = center_point[1] + y;
+    }
+
+    data
+}
+
+// Check the array has the correct shape for plotting (Two-dimensional, with 2 columns)
+pub fn check_array_for_plotting(arr: &Array2<f32>) -> bool {
+    if (arr.shape().len() != 2) || (arr.shape()[1] != 2) {
+        panic!(
+            "Array shape of {:?} is incorrect for 2D plotting!",
+            arr.shape()
+        );
+        // false
+    } else {
+        true
+    }
 }

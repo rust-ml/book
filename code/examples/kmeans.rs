@@ -17,7 +17,7 @@ fn main() {
     let square_3 = create_square([3.0, 8.0], 1.0, 150); // Cluster 3
     let square_4 = create_square([5.0, 5.0], 9.0, 300); // A bunch of noise across them all
 
-    let combined_squares = ndarray::stack(
+    let data = ndarray::stack(
         Axis(0),
         &[
             square_1.view(),
@@ -30,7 +30,7 @@ fn main() {
     //ANCHOR_END: create_squares
 
     // ANCHOR: create_model
-    let dataset = DatasetBase::from(combined_squares);
+    let dataset = DatasetBase::from(data);
     let rng = thread_rng(); // Random number generator
     let n_clusters = 3;
     let model = KMeans::params_with_rng(n_clusters, rng)
@@ -108,15 +108,3 @@ fn main() {
     // ANCHOR_END: plot_points
 }
 
-// Check the array has the correct shape for plotting (Two-dimensional, with 2 columns)
-fn check_array_for_plotting(arr: &Array2<f32>) -> bool {
-    if (arr.shape().len() != 2) || (arr.shape()[1] != 2) {
-        panic!(
-            "Array shape of {:?} is incorrect for 2D plotting!",
-            arr.shape()
-        );
-        // false
-    } else {
-        true
-    }
-}
