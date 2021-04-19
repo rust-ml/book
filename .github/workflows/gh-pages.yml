@@ -19,7 +19,7 @@ jobs:
       #   with:
       #     mdbook-version: '0.4.6'
       #     mdbook-version: 'latest'
-      - run: mdbook build
+      - run: mdbook build || mdbook build # todo - why first build fails?
       - run: ls ./book
 
       - name: Deploy
