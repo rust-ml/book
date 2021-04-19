@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Bibliography - Rust Machine Learning Book</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="src/scientific.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="2_intro.html"><strong aria-hidden="true">2.</strong> Introduction to Machine Learning with Rust</a></li><li class="chapter-item expanded "><a href="3_kmeans.html"><strong aria-hidden="true">3.</strong> Getting Started With The KMeans Algorithm</a></li><li class="chapter-item expanded affix "><a href="bibliography.html" class="active">Bibliography</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Rust Machine Learning Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#bibliography" id="bibliography">Bibliography</a></h1>
+<dl class="bib2xhtml"><!-- Authors: Amir Avni Boaz Rafaely --><dt><a id="iacc">[AA09]</a></dt><dd>Boaz Rafaely Amir Avni.Interaural cross correlation and spatial correlation in a sound field  represented by Spherical Harmonics.In <cite>Ambisonics Symposium</cite>, 2009.</dd><!-- Authors: Andeggs --><dt><a id="wikimedia">[And09]</a></dt><dd>Andeggs.<a href="https://upload.wikimedia.org/wikipedia/commons/4/4f/3D_Spherical.svg">3d  spherical coordinates</a>, 2009.[Online; accessed August 20, 2017].</dd><!-- Authors: Audio Research Lab --><dt><a id="step">[Aud16]</a></dt><dd>Audio Research Lab.<cite>Subjective Training and Evaluation Program (STEP)</cite>, 2016.</dd><!-- Authors: Boaz Rafaely --><dt><a id="sampling">[Boa15]</a></dt><dd>Rafaely Boaz.<cite>Fundementals of Spherical Array Processing</cite>.Springer, 2015.</dd><!-- Authors: Thomas Buelow --><dt><a id="convolution">[Bue01]</a></dt><dd>Thomas Buelow.Spherical diffusion for surface smoothing and denoising, 2001.</dd><!-- Authors: Clapp Samuel W and Guthrie Anne E and Braasch Jonas and Xiang  Ning --><dt><a id="maxre">[CGBX13]</a></dt><dd>Samuel W. Clapp,  Anne E. Guthrie, Jonas Braasch, and  Ning Xiang.Using Ambisonics to reconstruct measured soundfields.In <cite>Audio Engineering Society Convention 135</cite>, 2013.</dd><!-- Authors: Qing Chen --><dt><a id="imagemoments">[Che03]</a></dt><dd>Qing Chen.Evaluation of ocr algorithms for images with different spatial resolutions and  noises, 2003.</dd><!-- Authors: C Nachbar F Zotter E Deleflie and A Sontacchi --><dt><a id="ambix">[CNS11]</a></dt><dd>E. Deleflie C. Nachbar,  F. Zotter and A. Sontacchi.Ambix - a suggested ambisonics format.In <cite>Ambisonics Symposium</cite>, 2011.</dd><!-- Authors: Daniel Jerome --><dt><a id="nfc1">[Dan03]</a></dt><dd>Jerome Daniel.Spatial sound encoding including near field effect: Introducing distance coding  filters and a viable, new Ambisonic format.In <cite>Audio Engineering Society Conference: 23rd International Conference:  Signal Processing in Audio Recording and Reproduction</cite>, 2003.</dd><!-- Authors: DM Healy Jr D Rockmore P J Kostelec and Sean S B Moore --><dt><a id="shfft">[DHJM98]</a></dt><dd>P. J. Kostelec D.M.  Healy Jr., D. Rockmore and Sean S. B. Moore.FFTs for the 2-sphere - improvements and variation.<cite>Journal of Fourier Analysis and Applications</cite>, 9(4):341–385,  1998.</dd><!-- Authors: A R DiDonato --><dt><a id="legendreintegral">[DiD82]</a></dt><dd>A. R.  DiDonato.Recurrence relations for the indefinite integrals of the associated legendre  functions.<cite>Mathematics of Computation</cite>, 38(158):547–551, 1982.</dd><!-- Authors: Heinz W Engl --><dt><a id="tikhonov">[Eng87]</a></dt><dd>Heinz W Engl.On the choice of the regularization parameter for iterated tikhonov  regularization of iii-posed problems.<cite>Journal of Approximation Theory</cite>, 49(1):55–63, 1987.</dd><!-- Authors: Franz Zotter Matthias Frank and Hannes Pomberger --><dt><a id="modematchingsvd">[FZP13]</a></dt><dd>Matthias Frank  Franz Zotter and Hannes Pomberger.Comparison of energy-preserving and all-round Ambisonic decoders.In <cite>Fortschritte der Akustik, AIA-DAGA</cite>, 2013.</dd><!-- Authors: Herre Jürgen and Hilpert Johannes and Kuntz Achim and Plogsties  Jan --><dt><a id="mpegh">[HHKP15]</a></dt><dd>Jürgen Herre,  Johannes Hilpert, Achim Kuntz, and  Jan Plogsties.MPEG-H audio—the new standard for universal spatial/3d audio coding.<cite>J. Audio Eng. Soc</cite>, 62:821–830, 2015.</dd><!-- Authors: R H Hardin and N J A Sloane --><dt><a id="hardinsloane">[HS96]</a></dt><dd>R. H. Hardin and  N. J. A. Sloane.Mclaren's improved snub cube and other new spherical designs in three  dimensions.<cite>Discrete Computational Geometry</cite>, 15:429–441, 1996.</dd><!-- Authors: Hahn Nara and Spors Sascha --><dt><a id="nfc2">[HS17]</a></dt><dd>Nara Hahn and  Sascha Spors.Further investigations on the design of radial filters for the driving  functions of Near-Field Compensated Higher-Order Ambisonics.In <cite>Audio Engineering Society Convention 142</cite>, 2017.</dd><!-- Authors: M A Poletti --><dt><a id="modematching">[Pol05]</a></dt><dd>M. A. Poletti.Three-dimensional surround sound systems based on Spherical Harmonics.<cite>J. Audio Eng. Soc</cite>, 53(11):1004–1025, 2005.</dd><!-- Authors: Lord Rayleigh --><dt><a id="itdild">[Ray07]</a></dt><dd>Lord Rayleigh.On our perception of sound direction.13(74):214–232, 1907.</dd><!-- Authors: Scaini Davide and Arteaga Daniel --><dt><a id="idhoa">[SA14]</a></dt><dd>Davide Scaini and  Daniel Arteaga.Decoding of higher order ambisonics to irregular periphonic loudspeaker arrays.In <cite>Audio Engineering Society Conference: 55th International Conference:  Spatial Audio</cite>, Aug 2014.</dd><!-- Authors: Sakurai JJ and Napolitano J --><dt><a id="clebschgordan">[SN11]</a></dt><dd>J.J. Sakurai and  J. Napolitano.<cite>Modern Quantum Mechanics</cite>.Pearson, 2011.</dd><!-- Authors: Ville Pulkki Jyri Huopaniemi Tommi Huotilainen and Matti  Karjalainen --><dt><a id="vbap">[vba96]</a></dt><dd><cite>DSP Approach to Multichannel  Audio Mixing</cite>. ICMC, 1996.</dd><!-- Authors: Peter Young --><dt><a id="helmholtz">[You09]</a></dt><dd>Peter Young.Helmholtz's and laplace's equations in spherical polar coordinates: Spherical  harmonics and spherical Bessel functions, 2009.</dd><!-- Authors: Zotter Franz and Frank Matthias --><dt><a id="allrad">[ZF12]</a></dt><dd>Franz Zotter and  Matthias Frank.All-round Ambisonic panning and decoding.<cite>J. Audio Eng. Soc</cite>, 60(10):807–820, 2012.</dd><!-- Authors: Franz Zotter and Hannes Pomberger --><dt><a id="modematchingimprove">[ZP10]</a></dt><dd>Franz  Zotter and Hannes Pomberger.Ambisonic decoding with and without Mode-Matching: A case study using the  hemisphere.2010.</dd>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="3_kmeans.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="3_kmeans.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
