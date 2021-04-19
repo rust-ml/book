@@ -1,0 +1,29 @@
+name: github pages
+
+on:
+  push:
+    branches:
+      - master-test-build # todo, change to master later
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    # https://www.petefreitag.com/item/903.cfm
+    container:
+      image: liufuyang/mdbook-scientific:0.3.7
+    steps:
+      - uses: actions/checkout@v2
+
+      # - name: Setup mdBook
+      #   uses: peaceiris/actions-mdbook@v1
+      #   with:
+      #     mdbook-version: '0.4.6'
+      #     mdbook-version: 'latest'
+      - run: mdbook build
+      - run: ls ./book
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./book
