@@ -17,8 +17,11 @@ fn main() {
     let donut_2: Array2<f32> = create_hollow_circle([5.0, 5.0], [4.5, 4.75], 1000); // Cluster 2
     let noise: Array2<f32> = create_square([5.0, 5.0], 10.0, 100); // Random noise
 
-    let data = ndarray::stack(Axis(0), &[circle.view(), donut_1.view(), donut_2.view(), noise.view()])
-        .expect("An error occurred while stacking the dataset");
+    let data = ndarray::stack(
+        Axis(0),
+        &[circle.view(), donut_1.view(), donut_2.view(), noise.view()],
+    )
+    .expect("An error occurred while stacking the dataset");
     // ANCHOR_END: create_circles
 
     // ANCHOR: create_and_run_model
@@ -81,7 +84,7 @@ fn main() {
             _ => Circle::new(
                 (coordinates[0], coordinates[1]),
                 3,
-                ShapeStyle::from(&RGBColor(255,255,255)).filled(),
+                ShapeStyle::from(&RGBColor(255, 255, 255)).filled(),
             ),
         };
 

@@ -107,4 +107,3 @@ fn main() {
     }
     // ANCHOR_END: plot_points
 }
-
