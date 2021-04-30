@@ -3,7 +3,7 @@ name: github pages
 on:
   push:
     branches:
-      - master-test-build # todo, change to master later
+      - master
 
 jobs:
   deploy:
