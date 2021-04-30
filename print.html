@@ -153,12 +153,12 @@
                     <main>
                         <h1><a class="header" href="#chapter-1" id="chapter-1">Chapter 1</a></h1>
 <p>A simple demonstration of latex and gnuplot integration into <code>mdbook</code>.</p>
-<p>The current mdbook-science</p>
-<p>These lines related to hyperplane is not working</p>
-<p>Other stuff works:</p>
-<div id="energy" class="equation"><div class="equation_inner"><object data="assets/439706c949677821f5e69104.svg" type="image/svg+xml"></object></div><span>(1.1)</span></div>
-<div id="svm" class="equation"><div class="equation_inner"><object data="assets/d36d2f91a62a9e32d4bdb7d7.svg" type="image/svg+xml"></object></div><span>(1.2)</span></div>
-<figure id="contour" class="figure"><object data="assets/e9ea986c569b3a41be529169.svg" type="image/svg+xml"/></object><figcaption>Figure 1.1 Contour test plot</figcaption></figure>
+<figure id="hyperplane" class="figure"><object data="assets/dee8de7ccbf9223918d21410.svg" type="image/svg+xml"/></object><figcaption>Figure 1.1 Influence of an outlier to the separating hyperplane, note that a single support vector changes the border completely</figcaption></figure>
+<p>This is a test to 
+<a class="fig_ref" href='#hyperplane'>Figure 1.3</a>
+blub.</p>
+<div id="svm" class="equation"><div class="equation_inner"><object data="assets/d36d2f91a62a9e32d4bdb7d7.svg" type="image/svg+xml"></object></div><span>(1.1)</span></div>
+<figure id="contour" class="figure"><object data="assets/e9ea986c569b3a41be529169.svg" type="image/svg+xml"/></object><figcaption>Figure 1.2 Contour test plot</figcaption></figure>
 <p>We should reference this 
 <a class="bib_ref" href='bibliography.html#legendreintegral'>[1]</a>
 and inline math 
@@ -166,6 +166,30 @@ and inline math
 should also work and this 
 <a class="equ_ref" href='#svm'>Eq. (1.2)</a>
 .</p>
+<pre><code># Chapter 1
+
+A simple demonstration of latex and gnuplot integration into `mdbook`.
+
+&lt;figure id=&quot;hyperplane&quot; class=&quot;figure&quot;&gt;&lt;object data=&quot;assets/dee8de7ccbf9223918d21410.svg&quot; type=&quot;image/svg+xml&quot;/&gt;&lt;/object&gt;&lt;figcaption&gt;Figure 1.3 Influence of an outlier to the seperating hyperplane, note that a single support vector changes the border completely&lt;/figcaption&gt;&lt;/figure&gt;
+
+This is a test to 
+&lt;a class=&quot;fig_ref&quot; href='#hyperplane'&gt;Figure 1.3&lt;/a&gt;
+ blub.
+
+&lt;div id=&quot;svm&quot; class=&quot;equation&quot;&gt;&lt;div class=&quot;equation_inner&quot;&gt;&lt;object data=&quot;assets/d36d2f91a62a9e32d4bdb7d7.svg&quot; type=&quot;image/svg+xml&quot;&gt;&lt;/object&gt;&lt;/div&gt;&lt;span&gt;(1.2)&lt;/span&gt;&lt;/div&gt;
+
+
+&lt;figure id=&quot;contour&quot; class=&quot;figure&quot;&gt;&lt;object data=&quot;assets/e9ea986c569b3a41be529169.svg&quot; type=&quot;image/svg+xml&quot;/&gt;&lt;/object&gt;&lt;figcaption&gt;Figure 1.4 Contour test plot&lt;/figcaption&gt;&lt;/figure&gt;
+
+
+We should reference this 
+&lt;a class=&quot;bib_ref&quot; href='bibliography.html#legendreintegral'&gt;[1]&lt;/a&gt;
+ and inline math 
+&lt;object class=&quot;equation_inline&quot; data=&quot;assets/de566924d07db43d343b3454.svg&quot; type=&quot;image/svg+xml&quot;&gt;&lt;/object&gt;
+ should also work and this 
+&lt;a class=&quot;equ_ref&quot; href='#svm'&gt;Eq. (1.2)&lt;/a&gt;
+.
+</code></pre>
 <h1><a class="header" href="#introduction-to-machine-learning-with-rust" id="introduction-to-machine-learning-with-rust">Introduction to Machine Learning with Rust</a></h1>
 <h2><a class="header" href="#what-is-this-book-for" id="what-is-this-book-for">What is this book for?</a></h2>
 <p>This book aims to provide an accessible introduction to machine learning and data science in the Rust ecosystem. Each chapter will have the description of an algorithm, and walk through a code example from start to finish.</p>
