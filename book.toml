@@ -12,8 +12,7 @@ renderer = ["html"]
 bibliography = "literature.bib"
 bib2xhtml = "/github/bib2xhtml/"
 
-# assets = "src/"
-assets = "mdbook-scientific"
+assets = "src/"
 
 [output.html]
 additional-css = ["src/scientific.css"]
