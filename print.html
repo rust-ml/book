@@ -85,7 +85,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="2_intro.html"><strong aria-hidden="true">2.</strong> Introduction to Machine Learning with Rust</a></li><li class="chapter-item expanded "><a href="3_kmeans.html"><strong aria-hidden="true">3.</strong> Getting Started With The KMeans Algorithm</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="2_intro.html"><strong aria-hidden="true">2.</strong> Introduction to Machine Learning with Rust</a></li><li class="chapter-item expanded "><a href="3_kmeans.html"><strong aria-hidden="true">3.</strong> Getting Started With The KMeans Algorithm</a></li><li class="chapter-item expanded "><a href="4_dbscan.html"><strong aria-hidden="true">4.</strong> Clustering with DBSCAN</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -199,8 +199,9 @@ We should reference this
 <p>Conversely, we don't assume an in-depth knowledge of machine learning (i.e. mathematical familiarity of the field). Some familiarity with the algorithms may be helpful, but the descriptions and code contained in here should help to build a foundation of some of these topics.</p>
 <h2><a class="header" href="#how-to-use-this-book" id="how-to-use-this-book">How to use this book</a></h2>
 <p>Each chapter's code sample will be available in its entirety in the <code>code/</code> directory, and can be run independently of the book. For example, to run the entirety of the code example for the KMeans algorithm, the steps would look like the following:</p>
-<pre><code class="language-bash">user@computer:~/rust-ml/book cd code/
-user@computer:~/rust-ml/book/code cargo run --release --example kmeans
+<pre><code class="language-bash"># From repo directory
+cd code
+cargo run --release --example kmeans
 </code></pre>
 <h2><a class="header" href="#an-additional-note" id="an-additional-note">An additional note</a></h2>
 <p>Like much of Rust, many of the libraries in this ecosystem empower people to write code that they might otherwise not feel able to write otherwise. Machine learning provides a really interesting and useful set of tools. That is a great benefit! However, as the saying goes, with great power comes great responsibility. This means that <strong>it is the responsibility of each developer individually, and the community as a whole, to make sure that the code we write is not being used in harmful ways and make ethical decisions surrounding our work.</strong></p>
@@ -242,7 +243,7 @@ let square_2 = create_square([2.0, 2.0], 2.0, 150); // Cluster 2
 let square_3 = create_square([3.0, 8.0], 1.0, 150); // Cluster 3
 let square_4 = create_square([5.0, 5.0], 9.0, 300); // A bunch of noise across them all
 
-let combined_squares = ndarray::stack(
+let data = ndarray::stack(
 Axis(0),
 &amp;[
 square_1.view(),
@@ -260,7 +261,7 @@ square_4.view(),
 <pre><pre class="playpen"><code class="language-rust no_run">
 <span class="boring">#![allow(unused_variables)]
 </span><span class="boring">fn main() {
-</span>let dataset = DatasetBase::from(combined_squares);
+</span>let dataset = DatasetBase::from(data);
 let rng = thread_rng(); // Random number generator
 let n_clusters = 3;
 let model = KMeans::params_with_rng(n_clusters, rng)
@@ -357,6 +358,100 @@ root_area
 </span></code></pre></pre>
 <p>And that's it! Note that there's not separate step for saving the final product, since that's automatically taken care of by our backend. The final visualization of the clusters created by the KMeans algorithm will look like the following:</p>
 <p><img src="kmeans.png" alt="KMeans" /></p>
+<h2><a class="header" href="#using-dbscan-with-linfa-clustering" id="using-dbscan-with-linfa-clustering">Using DBSCAN with <code>linfa-clustering</code></a></h2>
+<h3><a class="header" href="#what-is-the-dbscan-algorithm" id="what-is-the-dbscan-algorithm">What is the DBSCAN algorithm?</a></h3>
+<p>The DBSCAN algorithm (Density-Based Spatial Clustering Algorithm with Noise) was originally published in <a href="https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.121.9220">1996</a>, and has since become one of the most popular and well-known clustering algorithms available.</p>
+<h3><a class="header" href="#comparison-with-kmeans" id="comparison-with-kmeans">Comparison with KMeans</a></h3>
+<p>Before getting into the code, let's examine how these differences in approach plays out on different types of data. In the images below, both the DBSCAN and KMeans algorithms were applied to the same dataset. The KMeans algorithm was manually set to find 3 clusters (remember, DBSCAN automatically calculates the number of clusters based on the provided parameters).</p>
+<img src="clustering_comparison.png" alt="Comparison" width=600px height=300px align="middle">
+<p>This example<sup class="footnote-reference"><a href="#1">1</a></sup> demonstrates two of the major strengths of DBSCAN over an algorithm like KMeans; it is able to automatically detect the number of clusters that meet the set of given parameters. Keep in mind that this doesn't mean DBSCAN require less information about the dataset, but rather that the information it does require differs from an algorithm like KMeans.</p>
+<p>DBSCAN does a great job at finding clustering that are spatially contiguous, but not necessarily confined to single region. This is where the &quot;and Noise&quot; part of the algorithm's name comes in. Especially in real-world data, there's often data that won't fit well into a given cluster. These can be outliers or points that don't demonstrate good alignment with any of the main clusters. DBSCAN doesn't require that they do. Instead, it will simply give them a cluster label of <code>None</code> (in our example, these are graphically the black points). However, DBSCAN does a good job at analyzing existing information, it doesn't predict new data, which is one of its main drawbacks</p>
+<p>Comparatively, KMeans will take into account each point in the dataset, which means outliers can negatively affect the local optimal location for a given cluster's centroid in order to accommodate them. Euclidean space is linear, which means that small changes in the data result in proportionately small changes to the position of the centroids. This is problematic when there are outliers in the data.</p>
+<h3><a class="header" href="#using-dsbcan-with-linfa" id="using-dsbcan-with-linfa">Using DSBCAN with <code>linfa</code></a></h3>
+<p>Compared to</p>
+<pre><pre class="playpen"><code class="language-rust no_run">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>// Import the linfa prelude and KMeans algorithm
+use linfa::prelude::*;
+use linfa_clustering::Dbscan;
+// We'll build our dataset on our own using ndarray and rand
+use ndarray::prelude::*;
+// Import the plotters crate to create the scatter plot
+use plotters::prelude::*;
+<span class="boring">}
+</span></code></pre></pre>
+<p>Instead of having a several higher-density clusters different areas, we'll take advantage of DBSCAN's ability to follow spatially-contiguous non-localized clusters by building our data out of both filled and hollow circles, with some random noise tossed in as well. The end goal will be to re-find each of these clusters, and exclude some of the noise!</p>
+<pre><pre class="playpen"><code class="language-rust no_run">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>// The goal is to be able to find each of these as distinct, and exclude some of the noise
+let circle: Array2&lt;f32&gt; = create_circle([5.0, 5.0], 1.0, 100); // Cluster 0
+let donut_1: Array2&lt;f32&gt; = create_hollow_circle([5.0, 5.0], [2.0, 3.0], 400); // Cluster 1
+let donut_2: Array2&lt;f32&gt; = create_hollow_circle([5.0, 5.0], [4.5, 4.75], 1000); // Cluster 2
+let noise: Array2&lt;f32&gt; = create_square([5.0, 5.0], 10.0, 100); // Random noise
+
+let data = ndarray::stack(Axis(0), &amp;[circle.view(), donut_1.view(), donut_2.view(), noise.view()])
+.expect(&quot;An error occurred while stacking the dataset&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Compared to <code>linfa</code>'s KMeans algorithm, the DBSCAN implementation is able to operate directly on a ndarray <code>Array2</code> data structure, so there's no need to convert it into the <code>linfa</code>-native <code>Dataset</code> type first. It's also worth pointing out that choosing the chosen parameters often take some experimentation and tuning before they produce results that actually make sense. This is one of the areas where data visualization can be really valuable; it is helpful in developing some spatial intuition about your data set and understand how your choice of hyperparameters will affect the results produced by the algorithm.</p>
+<pre><pre class="playpen"><code class="language-rust no_run">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>// Compared to linfa's KMeans algorithm, the DBSCAN implementation can operate
+// directly on an ndarray `Array2` data structure, so there's no need to convert it
+// into the linfa-native `Dataset` first.
+let min_points = 20;
+let clusters = Dbscan::params(min_points).tolerance(0.6).transform(&amp;data);
+println!(&quot;{:#?}&quot;, clusters);
+<span class="boring">}
+</span></code></pre></pre>
+<p>We'll skip over setting up <code>ChartBuilder</code> struct and drawing areas from the <code>plotters</code> crate, since it's exactly the same as in the <a href="./3_kmeans.html">KMeans</a> example.</p>
+<p>Remember how we mentioned DBSCAN is an algorithm that can exclude noise? That's particularly important for the pattern-matching in this case, since we're almost guaranteed to end up with some values that don't fit nicely into any of our expected clusters. Since we generated an artificial dataset, we know the number of clusters that should be generated, and where they're located. However, that won't always be the case. In that situation, we could instead examine the number of clusters afterwards, create a colormap using custom RGB colors which matches the highest number of clusters, and plot it that way.</p>
+<pre><pre class="playpen"><code class="language-rust no_run">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>for i in 0..data.shape()[0] {
+let coordinates = data.slice(s![i, 0..2]);
+
+let point = match clusters[i] {
+Some(0) =&gt; Circle::new(
+(coordinates[0], coordinates[1]),
+3,
+ShapeStyle::from(&amp;RED).filled(),
+),
+Some(1) =&gt; Circle::new(
+(coordinates[0], coordinates[1]),
+3,
+ShapeStyle::from(&amp;GREEN).filled(),
+),
+Some(2) =&gt; Circle::new(
+(coordinates[0], coordinates[1]),
+3,
+ShapeStyle::from(&amp;BLUE).filled(),
+),
+// Making sure our pattern-matching is exhaustive
+// Note that we can define a custom color using RGB
+_ =&gt; Circle::new(
+(coordinates[0], coordinates[1]),
+3,
+ShapeStyle::from(&amp;RGBColor(255,255,255)).filled(),
+),
+};
+
+root_area
+.draw(&amp;point)
+.expect(&quot;An error occurred while drawing the point!&quot;);
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>As a result, we then get the following chart, where each cluster is uniquely identified, and some of the random noise associated with the dataset is discarded.</p>
+<p><img src="dbscan.png" alt="DBSCAN" /></p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>This code for this comparison is actually separate from the main DBSCAN example. It can be found at <code>code/examples/clustering_comparison.rs</code>.</p>
+</div>
 <h1><a class="header" href="#bibliography" id="bibliography">Bibliography</a></h1>
 <dl class="bib2xhtml"><!-- Authors: Amir Avni Boaz Rafaely --><dt><a id="iacc">[AA09]</a></dt><dd>Boaz Rafaely Amir Avni.Interaural cross correlation and spatial correlation in a sound field  represented by Spherical Harmonics.In <cite>Ambisonics Symposium</cite>, 2009.</dd><!-- Authors: Andeggs --><dt><a id="wikimedia">[And09]</a></dt><dd>Andeggs.<a href="https://upload.wikimedia.org/wikipedia/commons/4/4f/3D_Spherical.svg">3d  spherical coordinates</a>, 2009.[Online; accessed August 20, 2017].</dd><!-- Authors: Audio Research Lab --><dt><a id="step">[Aud16]</a></dt><dd>Audio Research Lab.<cite>Subjective Training and Evaluation Program (STEP)</cite>, 2016.</dd><!-- Authors: Boaz Rafaely --><dt><a id="sampling">[Boa15]</a></dt><dd>Rafaely Boaz.<cite>Fundementals of Spherical Array Processing</cite>.Springer, 2015.</dd><!-- Authors: Thomas Buelow --><dt><a id="convolution">[Bue01]</a></dt><dd>Thomas Buelow.Spherical diffusion for surface smoothing and denoising, 2001.</dd><!-- Authors: Clapp Samuel W and Guthrie Anne E and Braasch Jonas and Xiang  Ning --><dt><a id="maxre">[CGBX13]</a></dt><dd>Samuel W. Clapp,  Anne E. Guthrie, Jonas Braasch, and  Ning Xiang.Using Ambisonics to reconstruct measured soundfields.In <cite>Audio Engineering Society Convention 135</cite>, 2013.</dd><!-- Authors: Qing Chen --><dt><a id="imagemoments">[Che03]</a></dt><dd>Qing Chen.Evaluation of ocr algorithms for images with different spatial resolutions and  noises, 2003.</dd><!-- Authors: C Nachbar F Zotter E Deleflie and A Sontacchi --><dt><a id="ambix">[CNS11]</a></dt><dd>E. Deleflie C. Nachbar,  F. Zotter and A. Sontacchi.Ambix - a suggested ambisonics format.In <cite>Ambisonics Symposium</cite>, 2011.</dd><!-- Authors: Daniel Jerome --><dt><a id="nfc1">[Dan03]</a></dt><dd>Jerome Daniel.Spatial sound encoding including near field effect: Introducing distance coding  filters and a viable, new Ambisonic format.In <cite>Audio Engineering Society Conference: 23rd International Conference:  Signal Processing in Audio Recording and Reproduction</cite>, 2003.</dd><!-- Authors: DM Healy Jr D Rockmore P J Kostelec and Sean S B Moore --><dt><a id="shfft">[DHJM98]</a></dt><dd>P. J. Kostelec D.M.  Healy Jr., D. Rockmore and Sean S. B. Moore.FFTs for the 2-sphere - improvements and variation.<cite>Journal of Fourier Analysis and Applications</cite>, 9(4):341–385,  1998.</dd><!-- Authors: A R DiDonato --><dt><a id="legendreintegral">[DiD82]</a></dt><dd>A. R.  DiDonato.Recurrence relations for the indefinite integrals of the associated legendre  functions.<cite>Mathematics of Computation</cite>, 38(158):547–551, 1982.</dd><!-- Authors: Heinz W Engl --><dt><a id="tikhonov">[Eng87]</a></dt><dd>Heinz W Engl.On the choice of the regularization parameter for iterated tikhonov  regularization of iii-posed problems.<cite>Journal of Approximation Theory</cite>, 49(1):55–63, 1987.</dd><!-- Authors: Franz Zotter Matthias Frank and Hannes Pomberger --><dt><a id="modematchingsvd">[FZP13]</a></dt><dd>Matthias Frank  Franz Zotter and Hannes Pomberger.Comparison of energy-preserving and all-round Ambisonic decoders.In <cite>Fortschritte der Akustik, AIA-DAGA</cite>, 2013.</dd><!-- Authors: Herre Jürgen and Hilpert Johannes and Kuntz Achim and Plogsties  Jan --><dt><a id="mpegh">[HHKP15]</a></dt><dd>Jürgen Herre,  Johannes Hilpert, Achim Kuntz, and  Jan Plogsties.MPEG-H audio—the new standard for universal spatial/3d audio coding.<cite>J. Audio Eng. Soc</cite>, 62:821–830, 2015.</dd><!-- Authors: R H Hardin and N J A Sloane --><dt><a id="hardinsloane">[HS96]</a></dt><dd>R. H. Hardin and  N. J. A. Sloane.Mclaren's improved snub cube and other new spherical designs in three  dimensions.<cite>Discrete Computational Geometry</cite>, 15:429–441, 1996.</dd><!-- Authors: Hahn Nara and Spors Sascha --><dt><a id="nfc2">[HS17]</a></dt><dd>Nara Hahn and  Sascha Spors.Further investigations on the design of radial filters for the driving  functions of Near-Field Compensated Higher-Order Ambisonics.In <cite>Audio Engineering Society Convention 142</cite>, 2017.</dd><!-- Authors: M A Poletti --><dt><a id="modematching">[Pol05]</a></dt><dd>M. A. Poletti.Three-dimensional surround sound systems based on Spherical Harmonics.<cite>J. Audio Eng. Soc</cite>, 53(11):1004–1025, 2005.</dd><!-- Authors: Lord Rayleigh --><dt><a id="itdild">[Ray07]</a></dt><dd>Lord Rayleigh.On our perception of sound direction.13(74):214–232, 1907.</dd><!-- Authors: Scaini Davide and Arteaga Daniel --><dt><a id="idhoa">[SA14]</a></dt><dd>Davide Scaini and  Daniel Arteaga.Decoding of higher order ambisonics to irregular periphonic loudspeaker arrays.In <cite>Audio Engineering Society Conference: 55th International Conference:  Spatial Audio</cite>, Aug 2014.</dd><!-- Authors: Sakurai JJ and Napolitano J --><dt><a id="clebschgordan">[SN11]</a></dt><dd>J.J. Sakurai and  J. Napolitano.<cite>Modern Quantum Mechanics</cite>.Pearson, 2011.</dd><!-- Authors: Ville Pulkki Jyri Huopaniemi Tommi Huotilainen and Matti  Karjalainen --><dt><a id="vbap">[vba96]</a></dt><dd><cite>DSP Approach to Multichannel  Audio Mixing</cite>. ICMC, 1996.</dd><!-- Authors: Peter Young --><dt><a id="helmholtz">[You09]</a></dt><dd>Peter Young.Helmholtz's and laplace's equations in spherical polar coordinates: Spherical  harmonics and spherical Bessel functions, 2009.</dd><!-- Authors: Zotter Franz and Frank Matthias --><dt><a id="allrad">[ZF12]</a></dt><dd>Franz Zotter and  Matthias Frank.All-round Ambisonic panning and decoding.<cite>J. Audio Eng. Soc</cite>, 60(10):807–820, 2012.</dd><!-- Authors: Franz Zotter and Hannes Pomberger --><dt><a id="modematchingimprove">[ZP10]</a></dt><dd>Franz  Zotter and Hannes Pomberger.Ambisonic decoding with and without Mode-Matching: A case study using the  hemisphere.2010.</dd>
                     </main>

@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="2_intro.html"><strong aria-hidden="true">2.</strong> Introduction to Machine Learning with Rust</a></li><li class="chapter-item expanded "><a href="3_kmeans.html" class="active"><strong aria-hidden="true">3.</strong> Getting Started With The KMeans Algorithm</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="2_intro.html"><strong aria-hidden="true">2.</strong> Introduction to Machine Learning with Rust</a></li><li class="chapter-item expanded "><a href="3_kmeans.html" class="active"><strong aria-hidden="true">3.</strong> Getting Started With The KMeans Algorithm</a></li><li class="chapter-item expanded "><a href="4_dbscan.html"><strong aria-hidden="true">4.</strong> Clustering with DBSCAN</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -186,7 +186,7 @@ let square_2 = create_square([2.0, 2.0], 2.0, 150); // Cluster 2
 let square_3 = create_square([3.0, 8.0], 1.0, 150); // Cluster 3
 let square_4 = create_square([5.0, 5.0], 9.0, 300); // A bunch of noise across them all
 
-let combined_squares = ndarray::stack(
+let data = ndarray::stack(
 Axis(0),
 &amp;[
 square_1.view(),
@@ -204,7 +204,7 @@ square_4.view(),
 <pre><pre class="playpen"><code class="language-rust no_run">
 <span class="boring">#![allow(unused_variables)]
 </span><span class="boring">fn main() {
-</span>let dataset = DatasetBase::from(combined_squares);
+</span>let dataset = DatasetBase::from(data);
 let rng = thread_rng(); // Random number generator
 let n_clusters = 3;
 let model = KMeans::params_with_rng(n_clusters, rng)
@@ -313,7 +313,7 @@ root_area
                         
 
                         
-                            <a rel="next" href="bibliography.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="4_dbscan.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -331,7 +331,7 @@ root_area
                 
 
                 
-                    <a rel="next" href="bibliography.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="4_dbscan.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

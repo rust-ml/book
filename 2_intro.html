@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="2_intro.html" class="active"><strong aria-hidden="true">2.</strong> Introduction to Machine Learning with Rust</a></li><li class="chapter-item expanded "><a href="3_kmeans.html"><strong aria-hidden="true">3.</strong> Getting Started With The KMeans Algorithm</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="2_intro.html" class="active"><strong aria-hidden="true">2.</strong> Introduction to Machine Learning with Rust</a></li><li class="chapter-item expanded "><a href="3_kmeans.html"><strong aria-hidden="true">3.</strong> Getting Started With The KMeans Algorithm</a></li><li class="chapter-item expanded "><a href="4_dbscan.html"><strong aria-hidden="true">4.</strong> Clustering with DBSCAN</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -158,8 +158,9 @@
 <p>Conversely, we don't assume an in-depth knowledge of machine learning (i.e. mathematical familiarity of the field). Some familiarity with the algorithms may be helpful, but the descriptions and code contained in here should help to build a foundation of some of these topics.</p>
 <h2><a class="header" href="#how-to-use-this-book" id="how-to-use-this-book">How to use this book</a></h2>
 <p>Each chapter's code sample will be available in its entirety in the <code>code/</code> directory, and can be run independently of the book. For example, to run the entirety of the code example for the KMeans algorithm, the steps would look like the following:</p>
-<pre><code class="language-bash">user@computer:~/rust-ml/book cd code/
-user@computer:~/rust-ml/book/code cargo run --release --example kmeans
+<pre><code class="language-bash"># From repo directory
+cd code
+cargo run --release --example kmeans
 </code></pre>
 <h2><a class="header" href="#an-additional-note" id="an-additional-note">An additional note</a></h2>
 <p>Like much of Rust, many of the libraries in this ecosystem empower people to write code that they might otherwise not feel able to write otherwise. Machine learning provides a really interesting and useful set of tools. That is a great benefit! However, as the saying goes, with great power comes great responsibility. This means that <strong>it is the responsibility of each developer individually, and the community as a whole, to make sure that the code we write is not being used in harmful ways and make ethical decisions surrounding our work.</strong></p>
