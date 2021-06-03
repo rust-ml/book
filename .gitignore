@@ -1,2 +1,5 @@
 mdbook-scientific/target/*
 book/*
+*.aux
+fragments
+src/assets
