@@ -1,8 +1,9 @@
-use code::*;
+use linfa_book::*;
 // ANCHOR: libraries
 // Import the linfa prelude and KMeans algorithm
 use linfa::prelude::*;
 use linfa_clustering::KMeans;
+use linfa_nn::distance::LInfDist;
 // We'll build our dataset on our own using ndarray and rand
 use ndarray::prelude::*;
 use rand::prelude::*;
@@ -13,11 +14,11 @@ use plotters::prelude::*;
 fn main() {
     // ANCHOR: create_squares
     let square_1: Array2<f32> = create_square([7.0, 5.0], 1.0, 150); // Cluster 1
-    let square_2 = create_square([2.0, 2.0], 2.0, 150); // Cluster 2
-    let square_3 = create_square([3.0, 8.0], 1.0, 150); // Cluster 3
-    let square_4 = create_square([5.0, 5.0], 9.0, 300); // A bunch of noise across them all
+    let square_2: Array2<f32> = create_square([2.0, 2.0], 2.0, 150); // Cluster 2
+    let square_3: Array2<f32> = create_square([3.0, 8.0], 1.0, 150); // Cluster 3
+    let square_4: Array2<f32> = create_square([5.0, 5.0], 9.0, 300); // A bunch of noise across them all
 
-    let data = ndarray::stack(
+    let data: Array2<f32> = ndarray::concatenate(
         Axis(0),
         &[
             square_1.view(),
@@ -33,7 +34,7 @@ fn main() {
     let dataset = DatasetBase::from(data);
     let rng = thread_rng(); // Random number generator
     let n_clusters = 3;
-    let model = KMeans::params_with_rng(n_clusters, rng)
+    let model = KMeans::params_with(n_clusters, rng, LInfDist)
         .max_n_iterations(200)
         .tolerance(1e-5)
         .fit(&dataset)
@@ -47,7 +48,7 @@ fn main() {
     // ANCHOR_END: run_model
 
     // ANCHOR: build_chart_base
-    let root = BitMapBackend::new("../src/kmeans.png", (600, 400)).into_drawing_area();
+    let root = BitMapBackend::new("plots/kmeans.png", (600, 400)).into_drawing_area();
     root.fill(&WHITE).unwrap();
 
     let x_lim = 0.0..10.0f32;
@@ -107,4 +108,3 @@ fn main() {
     }
     // ANCHOR_END: plot_points
 }
-

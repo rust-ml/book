@@ -3,3 +3,5 @@ book/*
 *.aux
 fragments
 src/assets
+plots/*
+target/

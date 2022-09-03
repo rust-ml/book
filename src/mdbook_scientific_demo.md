@@ -6,7 +6,8 @@ $$latex, hyperplane, Influence of an outlier to the separating hyperplane, note 
 
 This is a test to $ref:fig:hyperplane$ blub.
 
-$$equation, svm
+# $$equation, svm
+$$
 \begin{aligned}
 0 \leq \lambda_i^{\ast} \leq c &\implies y_i(\mathbf{a}^{\ast^T}\mathbf{x}_i+b^{\ast}) = 1 \quad \text{e.g. support vector} \\
 \lambda_i^{\ast} = c &\implies y_i(\mathbf{a}^{\ast^T}\mathbf{x}_i+b^{\ast}) \leq 1 \quad \text{e.g. outlier vector} \\
@@ -23,7 +24,7 @@ splot x**2-y**2 with lines title "$x^2 - y^2$", x**2-y**2 with labels boxed noti
 $$
 
 
-We should reference this $ref:bib:legendreintegral$ and inline math $\sum_i \frac{a}{b}$ should also work and this $ref:equ:svm$.
+We should reference this $ref:bib:legendreintegral$ and inline math \\(\sum_i \frac{a}{b}\\) should also work and this $ref:equ:svm$.
 
 ```
 # Chapter 1

@@ -5,7 +5,7 @@ use mdbook_scientific::Scientific;
 use std::io;
 use std::process;
 
-pub fn make_app() -> App<'static, 'static> {
+pub fn make_app() -> App<'static> {
     App::new("nop-preprocessor")
         .about("A mdbook preprocessor which does precisely nothing")
         .subcommand(
@@ -43,7 +43,6 @@ fn handle_preprocessing(pre: &dyn Preprocessor) -> Result<(), Error> {
             ctx.mdbook_version
         );
     }
-
 
     let processed_book = pre.run(&ctx, book)?;
     serde_json::to_writer(io::stdout(), &processed_book)?;

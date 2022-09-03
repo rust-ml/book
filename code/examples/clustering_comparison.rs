@@ -1,4 +1,4 @@
-use code::*;
+use linfa_book::*;
 // ANCHOR: libraries
 // Import the linfa prelude and KMeans algorithm
 use linfa::prelude::*;
@@ -11,12 +11,12 @@ use rand::prelude::*;
 // ANCHOR_END: libraries
 
 fn main() {
-
     // ANCHOR: build_chart_base
     let chart_dims = (900, 400);
-    let root = BitMapBackend::new("../src/clustering_comparison.png", chart_dims).into_drawing_area();
+    let root =
+        BitMapBackend::new("../src/clustering_comparison.png", chart_dims).into_drawing_area();
     root.fill(&WHITE).unwrap();
-    let areas = root.split_by_breakpoints([chart_dims.0 / 2 ], [chart_dims.1]);
+    let areas = root.split_by_breakpoints([chart_dims.0 / 2], [chart_dims.1]);
 
     let x_lim = 0.0..10.0f32;
     let y_lim = 0.0..10.0f32;
@@ -28,10 +28,10 @@ fn main() {
         .caption("DBSCAN", ("sans-serif", 20)) // Set a caption and font
         .build_cartesian_2d(x_lim.clone(), y_lim.clone())
         .expect("Couldn't build our ChartBuilder");
-    
+
     ctx_a.configure_mesh().draw().unwrap();
     let root_area_a = ctx_a.plotting_area();
-    
+
     let mut ctx_b = ChartBuilder::on(&areas[1])
         .set_label_area_size(LabelAreaPosition::Left, 40) // Put in some margins
         .set_label_area_size(LabelAreaPosition::Right, 40)
@@ -39,7 +39,6 @@ fn main() {
         .caption("KMeans", ("sans-serif", 20)) // Set a caption and font
         .build_cartesian_2d(x_lim, y_lim)
         .expect("Couldn't build our ChartBuilder");
-
 
     ctx_b.configure_mesh().draw().unwrap();
     let root_area_b = ctx_b.plotting_area();
@@ -52,13 +51,19 @@ fn main() {
     let donut_2: Array2<f32> = create_hollow_circle([5.0, 5.0], [4.5, 4.75], 1000); // Cluster 2
     let noise: Array2<f32> = create_square([5.0, 5.0], 10.0, 100); // Random noise
 
-    let data = ndarray::stack(Axis(0), &[circle.view(), donut_1.view(), donut_2.view(), noise.view()])
-        .expect("An error occurred while stacking the dataset");
+    let data = ndarray::concatenate(
+        Axis(0),
+        &[circle.view(), donut_1.view(), donut_2.view(), noise.view()],
+    )
+    .expect("An error occurred while stacking the dataset");
 
     // DBSCAN STARTS HERE
 
     let min_points = 20;
-    let clusters = Dbscan::params(min_points).tolerance(0.6).transform(&data);
+    let clusters = Dbscan::params(min_points)
+        .tolerance(0.6)
+        .transform(&data)
+        .unwrap();
     println!("{:#?}", clusters);
 
     check_array_for_plotting(&circle); // Panics if that's not true
@@ -141,8 +146,4 @@ fn main() {
             .draw(&point)
             .expect("An error occurred while drawing the point!");
     }
-
-
 }
-
-

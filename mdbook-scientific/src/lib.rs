@@ -3,12 +3,13 @@ mod fragments;
 mod preprocess;
 
 use std::collections::HashMap;
-use std::path::Path;
 use std::fs;
+use std::path::Path;
 use std::path::PathBuf;
 
 use mdbook::book::{Book, BookItem, Chapter};
 use mdbook::errors::Error;
+use anyhow::anyhow;
 use mdbook::preprocess::{Preprocessor, PreprocessorContext};
 use nom_bibtex::*;
 
@@ -54,29 +55,37 @@ impl Preprocessor for Scientific {
                 let bib2xhtml = bib2xhtml.as_str().unwrap();
 
                 if !Path::new(bib).exists() {
-                    return Err(format!("bibliography {:?} not found!", bib).into());
+                    return Err(anyhow!("bibliography {:?} not found!", bib).into());
                 }
 
                 // read entries in bibtex file
                 let bibtex = fs::read_to_string(bib).unwrap();
                 let bibtex = Bibtex::parse(&bibtex).unwrap();
                 for (i, entry) in bibtex.bibliographies().into_iter().enumerate() {
-                    references.insert(entry.citation_key().to_string(), format!("[{}]", i+1));
+                    references.insert(entry.citation_key().to_string(), format!("[{}]", i + 1));
                 }
                 //
                 // create bibliography
                 let content = match fragments::bib_to_html(&bib, &bib2xhtml) {
                     Ok(x) => x,
-                    Err(err) => return Err(format!("{:?}", err).into())
+                    Err(err) => return Err(anyhow!("{:?}", err).into()),
                 };
 
                 // add final chapter for bibliography
-                let bib_chapter = Chapter::new("Bibliography", format!("# Bibliography\n{}", content), PathBuf::from("bibliography.md"), Vec::new());
+                let bib_chapter = Chapter::new(
+                    "Bibliography",
+                    format!("# Bibliography\n{}", content),
+                    PathBuf::from("bibliography.md"),
+                    Vec::new(),
+                );
                 book.push_item(bib_chapter);
             }
 
             // assets path
-            let asset_path = cfg.get("assets").map(|x| x.as_str().unwrap()).unwrap_or("src/");
+            let asset_path = cfg
+                .get("assets")
+                .map(|x| x.as_str().unwrap())
+                .unwrap_or("src/");
             let asset_path = ctx.root.join(asset_path);
 
             // process blocks like `$$ .. $$`
@@ -86,11 +95,24 @@ impl Preprocessor for Scientific {
                 }
 
                 if let BookItem::Chapter(ref mut ch) = item {
-                    let head_number = ch.number.as_ref().map(|x| format!("{}", x)).unwrap_or("".into());
+                    let head_number = ch
+                        .number
+                        .as_ref()
+                        .map(|x| format!("{}", x))
+                        .unwrap_or("".into());
 
-                    match replace_blocks(&fragment_path, &asset_path, &ch.content, &head_number, &mut used_fragments, &mut references) {
+                    match replace_blocks(
+                        &fragment_path,
+                        &asset_path,
+                        &ch.content,
+                        &head_number,
+                        &mut used_fragments,
+                        &mut references,
+                    ) {
                         Ok(x) => ch.content = x,
-                        Err(err) => error = Some(format!("Error in chapter {} {:?}", head_number, err))
+                        Err(err) => {
+                            error = Some(format!("Error in chapter {} {:?}", head_number, err))
+                        }
                     }
                 }
             });
@@ -102,17 +124,28 @@ impl Preprocessor for Scientific {
                 }
 
                 if let BookItem::Chapter(ref mut ch) = item {
-                    let head_number = ch.number.as_ref().map(|x| format!("{}", x)).unwrap_or("".into());
+                    let head_number = ch
+                        .number
+                        .as_ref()
+                        .map(|x| format!("{}", x))
+                        .unwrap_or("".into());
 
-                    match replace_inline_blocks(&fragment_path, &ch.content, &references, &mut used_fragments) {
+                    match replace_inline_blocks(
+                        &fragment_path,
+                        &ch.content,
+                        &references,
+                        &mut used_fragments,
+                    ) {
                         Ok(x) => ch.content = x,
-                        Err(err) => error = Some(format!("Error in chapter {}: {:?}", head_number, err))
+                        Err(err) => {
+                            error = Some(format!("Error in chapter {}: {:?}", head_number, err))
+                        }
                     }
                 }
             });
 
             if let Some(err) = error {
-                return Err(err.into());
+                return Err(anyhow!("{}",err));
             }
 
             // the output path is `src/assets`, which get copied to the output directory
@@ -128,7 +161,7 @@ impl Preprocessor for Scientific {
 
             Ok(book)
         } else {
-            Err("Key section not found!".into())
+            Err(anyhow!("Key section not found!"))
         }
     }
 
@@ -136,4 +169,3 @@ impl Preprocessor for Scientific {
         renderer != "not-supported"
     }
 }
-

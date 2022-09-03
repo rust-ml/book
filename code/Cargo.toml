@@ -1,6 +1,6 @@
 [package]
-name = "code"
-version = "0.1.0"
+name = "linfa-book"
+version = "0.2.0"
 authors = ["chrism"]
 edition = "2018"
 
@@ -8,7 +8,8 @@ edition = "2018"
 
 [dependencies]
 plotters = "0.3"
-ndarray = "0.13"
-linfa = {git = "https://github.com/rust-ml/linfa", branch = "master"}
-linfa-clustering = { git = "https://github.com/rust-ml/linfa/", branch = "master"}
-rand = "0.7"
+ndarray = "0.15"
+linfa = "0.6"
+linfa-clustering = "0.6"
+linfa-nn = "0.6"
+rand = "0.8"

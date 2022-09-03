@@ -7,10 +7,11 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-mdbook = { version = "0.3", default-features = false }
+mdbook = { version = "0.4", default-features = false }
 clap = "*"
 serde = "*"
 serde_json = "*"
 sha2 = "0.9"
 nom-bibtex = "*"
 which = { version = "3", default-features = false }
+anyhow = "1"
