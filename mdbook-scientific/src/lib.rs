@@ -7,9 +7,9 @@ use std::fs;
 use std::path::Path;
 use std::path::PathBuf;
 
+use anyhow::anyhow;
 use mdbook::book::{Book, BookItem, Chapter};
 use mdbook::errors::Error;
-use anyhow::anyhow;
 use mdbook::preprocess::{Preprocessor, PreprocessorContext};
 use nom_bibtex::*;
 
@@ -145,7 +145,7 @@ impl Preprocessor for Scientific {
             });
 
             if let Some(err) = error {
-                return Err(anyhow!("{}",err));
+                return Err(anyhow!("{}", err));
             }
 
             // the output path is `src/assets`, which get copied to the output directory

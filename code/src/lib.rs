@@ -34,6 +34,20 @@ pub fn create_circle(center_point: [f32; 2], radius: f32, num_points: usize) -> 
     data
 }
 
+// Creates a line y = m*x + b with some noise
+pub fn create_line(m: f64, b: f64, num_points: usize, min_max: [f64; 2]) -> Array2<f64> {
+    let mut data: Array2<f64> = Array2::zeros((num_points, 2));
+
+    let mut rng = rand::thread_rng();
+    for i in 0..num_points {
+        let var_y = rng.gen_range(-0.5..0.5f64);
+        data[[i, 0]] = rng.gen_range(min_max[0]..min_max[1]);
+        data[[i, 1]] = (m * data[[i, 0]]) + b + var_y;
+    }
+
+    data
+}
+
 // Creates a hollow circle of random points with a specified inner and outer diameter
 pub fn create_hollow_circle(
     center_point: [f32; 2],
