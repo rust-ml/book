@@ -14,11 +14,10 @@ Conversely, we don't assume an in-depth knowledge of machine learning (i.e. math
 
 ## How to use this book
 
-Each chapter's code sample will be available in its entirety in the `code/` directory, and can be run independently of the book. For example, to run the entirety of the code example for the KMeans algorithm, the steps would look like the following:
+Each chapter's code sample is available (and the plots generated) from the code available under the `examples` directory, and can be run independently of the book. For example, to run the entirety of the code example for the KMeans algorithm, you would do the following:
 ```bash
 # From repo directory
-cd code
-cargo run --release --example kmeans
+$ cargo run --release --example kmeans
 ```
 
 ## An additional note

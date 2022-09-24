@@ -1,2 +1,17 @@
-[workspace] 
-members = ["code","mdbook-scientific"]
+[package]
+name = "linfa-book"
+version = "0.2.0"
+authors = ["Christopher Moran <cmoran@cmoran.xyz>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+plotters = "0.3"
+ndarray = "0.15"
+linfa = "0.6"
+linfa-clustering = "0.6"
+linfa-linear = "0.6"
+linfa-datasets = {version = "0.6", features = ["winequality", "diabetes"]}
+linfa-nn = "0.6"
+rand = "0.8"

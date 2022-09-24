@@ -37,7 +37,7 @@ fn main() {
     // ANCHOR_END: create_and_run_model
 
     // ANCHOR: build_chart_base
-    let root = BitMapBackend::new("../src/dbscan.png", (600, 400)).into_drawing_area();
+    let root = BitMapBackend::new("target/dbscan.png", (600, 400)).into_drawing_area();
     root.fill(&WHITE).unwrap();
 
     let x_lim = 0.0..10.0f32;

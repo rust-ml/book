@@ -14,7 +14,7 @@ fn main() {
     // ANCHOR: build_chart_base
     let chart_dims = (900, 400);
     let root =
-        BitMapBackend::new("../src/clustering_comparison.png", chart_dims).into_drawing_area();
+        BitMapBackend::new("target/clustering_comparison.png", chart_dims).into_drawing_area();
     root.fill(&WHITE).unwrap();
     let areas = root.split_by_breakpoints([chart_dims.0 / 2], [chart_dims.1]);
 
