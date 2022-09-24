@@ -2,3 +2,4 @@ book/*
 *.aux
 plots/*
 target/
+Cargo.lock
