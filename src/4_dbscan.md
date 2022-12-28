@@ -44,7 +44,7 @@ Remember how we mentioned DBSCAN is an algorithm that can exclude noise? That's 
 
 As a result, we then get the following chart, where each cluster is uniquely identified, and some of the random noise associated with the dataset is discarded.  
 
-<img src="assets/dbscan.png" alt="DBSCAN" width=600px height=400px align="middle">
+<img src="assets/dbscan.png" alt="DBSCAN" width=500px height=450px align="middle">
 
 ---
 [^1]: This code for this comparison is actually separate from the main DBSCAN example. It can be found at `examples/clustering_comparison.rs`.

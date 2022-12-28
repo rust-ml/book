@@ -5,16 +5,6 @@ multilingual = false
 src = "src"
 title = "Rust Machine Learning Book"
 
-# Excluded mdbook-scientific at the moment in favor of testing MathJax support
-#[preprocessor.scientific]
-# Only run the `foo` preprocessor for the HTML renderer
-#renderer = ["html"]
-
-# bibliography = "literature.bib"
-# bib2xhtml = "/github/bib2xhtml/"
-
-#assets = "src/"
 [output.html]
-additional-css = ["src/scientific.css"]
 # Mathjax support addition
 mathjax-support = true
