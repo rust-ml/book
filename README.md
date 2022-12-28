@@ -40,3 +40,5 @@ $ cargo build --all
 # or
 $ cargo run --example name_of_algorithm
 ```
+
+By default, all plots will be written to the `target/` directory, so as not to be indexed by git. 

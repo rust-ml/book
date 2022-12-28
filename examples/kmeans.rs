@@ -48,7 +48,7 @@ fn main() {
     // ANCHOR_END: run_model
 
     // ANCHOR: build_chart_base
-    let root = BitMapBackend::new("plots/kmeans.png", (600, 400)).into_drawing_area();
+    let root = BitMapBackend::new("target/kmeans.png", (600, 400)).into_drawing_area();
     root.fill(&WHITE).unwrap();
 
     let x_lim = 0.0..10.0f32;
