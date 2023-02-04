@@ -3,3 +3,4 @@ book/*
 plots/*
 target/
 Cargo.lock
+

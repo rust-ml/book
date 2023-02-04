@@ -55,4 +55,4 @@ Finally, we'll configure the labels that we'll assigned to each of the series th
 
 And we're done (ooooh, ahhhh, pretty)!
 
-<img src="assets/linear_regression.png" alt="DBSCAN" width=600px height=400px align="middle">
+<img src="assets/linear_regression.png" alt="linear regression" width=600px height=400px align="middle">
