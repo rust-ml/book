@@ -4,8 +4,10 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Rust Machine Learning Book</title>
-        
-        <meta name="robots" content="noindex" />
+                <meta name="robots" content="noindex" />
+                
+
+        <!-- Custom HTML head -->
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -13,17 +15,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
-
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
-
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
@@ -31,16 +33,14 @@
 
         <!-- Custom theme stylesheets -->
         
-        <link rel="stylesheet" href="src/scientific.css">
-        
-
-        
-    </head>
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -85,8 +85,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="2_intro.html"><strong aria-hidden="true">2.</strong> Introduction to Machine Learning with Rust</a></li><li class="chapter-item expanded "><a href="3_kmeans.html"><strong aria-hidden="true">3.</strong> Getting Started With The KMeans Algorithm</a></li><li class="chapter-item expanded "><a href="4_dbscan.html"><strong aria-hidden="true">4.</strong> Clustering with DBSCAN</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
-            </div>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="2_intro.html"><strong aria-hidden="true">1.</strong> Introduction to Machine Learning with Rust</a></li><li class="chapter-item expanded "><a href="3_kmeans.html"><strong aria-hidden="true">2.</strong> Getting Started With The KMeans Algorithm</a></li><li class="chapter-item expanded "><a href="4_dbscan.html"><strong aria-hidden="true">3.</strong> Clustering with DBSCAN</a></li><li class="chapter-item expanded "><a href="5_linear_regression.html"><strong aria-hidden="true">4.</strong> Linear Regression</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -110,27 +109,24 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
-                    </div>
+                                            </div>
 
                     <h1 class="menu-title">Rust Machine Learning Book</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
+                                                                        
                     </div>
                 </div>
 
-                
-                <div id="search-wrapper" class="hidden">
+                                <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -139,7 +135,6 @@
                     </div>
                 </div>
                 
-
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -151,80 +146,41 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#chapter-1" id="chapter-1">Chapter 1</a></h1>
-<p>A simple demonstration of latex and gnuplot integration into <code>mdbook</code>.</p>
-<figure id="hyperplane" class="figure"><object data="assets/dee8de7ccbf9223918d21410.svg" type="image/svg+xml"/></object><figcaption>Figure 1.1 Influence of an outlier to the separating hyperplane, note that a single support vector changes the border completely</figcaption></figure>
-<p>This is a test to 
-<a class="fig_ref" href='#hyperplane'>Figure 1.3</a>
-blub.</p>
-<div id="svm" class="equation"><div class="equation_inner"><object data="assets/d36d2f91a62a9e32d4bdb7d7.svg" type="image/svg+xml"></object></div><span>(1.1)</span></div>
-<figure id="contour" class="figure"><object data="assets/e9ea986c569b3a41be529169.svg" type="image/svg+xml"/></object><figcaption>Figure 1.2 Contour test plot</figcaption></figure>
-<p>We should reference this 
-<a class="bib_ref" href='bibliography.html#legendreintegral'>[1]</a>
-and inline math 
-<object class="equation_inline" data="assets/de566924d07db43d343b3454.svg" type="image/svg+xml"></object>
-should also work and this 
-<a class="equ_ref" href='#svm'>Eq. (1.2)</a>
-.</p>
-<pre><code># Chapter 1
-
-A simple demonstration of latex and gnuplot integration into `mdbook`.
-
-&lt;figure id=&quot;hyperplane&quot; class=&quot;figure&quot;&gt;&lt;object data=&quot;assets/dee8de7ccbf9223918d21410.svg&quot; type=&quot;image/svg+xml&quot;/&gt;&lt;/object&gt;&lt;figcaption&gt;Figure 1.3 Influence of an outlier to the seperating hyperplane, note that a single support vector changes the border completely&lt;/figcaption&gt;&lt;/figure&gt;
-
-This is a test to 
-&lt;a class=&quot;fig_ref&quot; href='#hyperplane'&gt;Figure 1.3&lt;/a&gt;
- blub.
-
-&lt;div id=&quot;svm&quot; class=&quot;equation&quot;&gt;&lt;div class=&quot;equation_inner&quot;&gt;&lt;object data=&quot;assets/d36d2f91a62a9e32d4bdb7d7.svg&quot; type=&quot;image/svg+xml&quot;&gt;&lt;/object&gt;&lt;/div&gt;&lt;span&gt;(1.2)&lt;/span&gt;&lt;/div&gt;
-
-
-&lt;figure id=&quot;contour&quot; class=&quot;figure&quot;&gt;&lt;object data=&quot;assets/e9ea986c569b3a41be529169.svg&quot; type=&quot;image/svg+xml&quot;/&gt;&lt;/object&gt;&lt;figcaption&gt;Figure 1.4 Contour test plot&lt;/figcaption&gt;&lt;/figure&gt;
-
-
-We should reference this 
-&lt;a class=&quot;bib_ref&quot; href='bibliography.html#legendreintegral'&gt;[1]&lt;/a&gt;
- and inline math 
-&lt;object class=&quot;equation_inline&quot; data=&quot;assets/de566924d07db43d343b3454.svg&quot; type=&quot;image/svg+xml&quot;&gt;&lt;/object&gt;
- should also work and this 
-&lt;a class=&quot;equ_ref&quot; href='#svm'&gt;Eq. (1.2)&lt;/a&gt;
-.
-</code></pre>
-<h1><a class="header" href="#introduction-to-machine-learning-with-rust" id="introduction-to-machine-learning-with-rust">Introduction to Machine Learning with Rust</a></h1>
-<h2><a class="header" href="#what-is-this-book-for" id="what-is-this-book-for">What is this book for?</a></h2>
+                        <h1 id="introduction-to-machine-learning-with-rust"><a class="header" href="#introduction-to-machine-learning-with-rust">Introduction to Machine Learning with Rust</a></h1>
+<h2 id="what-is-this-book-for"><a class="header" href="#what-is-this-book-for">What is this book for?</a></h2>
 <p>This book aims to provide an accessible introduction to machine learning and data science in the Rust ecosystem. Each chapter will have the description of an algorithm, and walk through a code example from start to finish.</p>
-<h2><a class="header" href="#who-is-this-book-for" id="who-is-this-book-for">Who is this book for?</a></h2>
-<p>This book is written with two primary audiences in mind: developers who are familiar with machine learning and want to write their code Rust, and developers who are familiar with Rust and want to do some machine learning.</p>
+<h2 id="who-is-this-book-for"><a class="header" href="#who-is-this-book-for">Who is this book for?</a></h2>
+<p>This book is written with two primary audiences in mind: developers who are familiar with machine learning and want to write their code Rust, and developers who are familiar with Rust and want to do some machine learning. </p>
 <p>In both cases, we generally assume a basic level of understanding of the Rust programming language, although mastery is certainly not required! If you're brand new to the language, it's suggested to start off by reading <a href="https://doc.rust-lang.org/book/"><em>The Rust Programming Language</em></a>, then returning when you feel a little more comfortable. In particular, it's worth reviewing the sections on <a href="https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html">ownership</a>, <a href="https://doc.rust-lang.org/book/ch09-00-error-handling.html">error handling</a>, and <a href="https://doc.rust-lang.org/book/ch13-00-functional-features.html">functional features</a>. Perhaps just as importantly as Rust's syntax, a familiarity with the library/crates ecosystem and documentation practices will prove very valuable. Machine learning in many cases sits near the top of the stack; especially when one is working with data, there are usually several layers of code beneath what the top one is doing. That's one of the benefits of working in Rust; these lower layers are often also written in Rust, which makes the abstraction more transparent and empowers developers to dig fearlessly into the underlying aspects of these programs.</p>
 <p>Conversely, we don't assume an in-depth knowledge of machine learning (i.e. mathematical familiarity of the field). Some familiarity with the algorithms may be helpful, but the descriptions and code contained in here should help to build a foundation of some of these topics.</p>
-<h2><a class="header" href="#how-to-use-this-book" id="how-to-use-this-book">How to use this book</a></h2>
-<p>Each chapter's code sample will be available in its entirety in the <code>code/</code> directory, and can be run independently of the book. For example, to run the entirety of the code example for the KMeans algorithm, the steps would look like the following:</p>
+<h2 id="how-to-use-this-book"><a class="header" href="#how-to-use-this-book">How to use this book</a></h2>
+<p>Each chapter's code sample is available (and the plots generated) from the code available under the <code>examples</code> directory, and can be run independently of the book. For example, to run the entirety of the code example for the KMeans algorithm, you would do the following:</p>
 <pre><code class="language-bash"># From repo directory
-cd code
-cargo run --release --example kmeans
+$ cargo run --release --example kmeans
 </code></pre>
-<h2><a class="header" href="#an-additional-note" id="an-additional-note">An additional note</a></h2>
+<h2 id="an-additional-note"><a class="header" href="#an-additional-note">An additional note</a></h2>
 <p>Like much of Rust, many of the libraries in this ecosystem empower people to write code that they might otherwise not feel able to write otherwise. Machine learning provides a really interesting and useful set of tools. That is a great benefit! However, as the saying goes, with great power comes great responsibility. This means that <strong>it is the responsibility of each developer individually, and the community as a whole, to make sure that the code we write is not being used in harmful ways and make ethical decisions surrounding our work.</strong></p>
-<p>As a start, we suggest making yourself familiar with some of the resources that have been collected by the Institute for Ethical Machine Learning <a href="https://github.com/EthicalML/awesome-artificial-intelligence-guidelines">here</a>.</p>
-<h2><a class="header" href="#getting-started-with-the-k-means-clustering-algorithm" id="getting-started-with-the-k-means-clustering-algorithm">Getting Started With The K-Means Clustering Algorithm</a></h2>
-<h3><a class="header" href="#what-is-kmeans" id="what-is-kmeans">What is KMeans?</a></h3>
+<p>As a start, we suggest making yourself familiar with some of the resources that have been collected by the Institute for Ethical Machine Learning <a href="https://github.com/EthicalML/awesome-artificial-intelligence-guidelines">here</a>. </p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="getting-started-with-the-k-means-clustering-algorithm"><a class="header" href="#getting-started-with-the-k-means-clustering-algorithm">Getting Started With The K-Means Clustering Algorithm</a></h2>
+<h3 id="what-is-kmeans"><a class="header" href="#what-is-kmeans">What is KMeans?</a></h3>
 <p>KMeans is one of the most common clustering algorithms, where a set of unlabeled data points are grouped into a set of clusters such that each data point is part of the cluster with the centroid nearest to itself.</p>
 <p>The centroid of a cluster is calculated as the mean, or average, of the points assigned to that cluster. The <a href="https://github.com/rust-ml/linfa"><code>linfa</code></a> crate provides an implementation of the standard algorithm for this process, known as &quot;Lloyd's algorithm.&quot;</p>
-<p>KMeans is_iterative_, meaning that it progressively refines the points assigned to each cluster, and therefore a new centroid for that cluster (leading to new points being assigned to it) during each successive iteration. At a high level, there are three main steps to the algorithm:</p>
+<p>KMeans is_iterative_, meaning that it progressively refines the points assigned to each cluster, and therefore a new centroid for that cluster (leading to new points being assigned to it) during each successive iteration. At a high level, there are three main steps to the algorithm: </p>
 <ol>
-<li><strong>Initialisation</strong>: Choose our initial set of centroids--this can happen randomly or be set by the user, but the number of clusters/centroids is always defined ahead of time in KMeans</li>
+<li><strong>Initialization</strong>: Choose our initial set of centroids--this can happen randomly or be set by the user, but the number of clusters/centroids is always defined ahead of time in KMeans</li>
 <li><strong>Assignment</strong>: Assign each observation to the nearest cluster (minimum distance between the observation and the cluster's centroid);</li>
 <li><strong>Update</strong>: Recompute the centroid of each cluster.</li>
 </ol>
 <p>Steps 2 and 3 are repeated until the location of the centroid for each cluster converges.</p>
-<h3><a class="header" href="#using-kmeans-with-linfa-clustering" id="using-kmeans-with-linfa-clustering">Using KMeans with <code>linfa-clustering</code></a></h3>
-<p>First, we'll start off by importing the dependencies, which can be found in the <code>Cargo.toml</code> file in the <code>code/</code> folder. Note that we need to include both the overall <code>linfa</code> crate, which will provide some of the structuring, as well as the actual KMeans algorithm from the <code>linfa-clustering</code> crate.</p>
-<pre><pre class="playpen"><code class="language-rust no_run">
-<span class="boring">#![allow(unused_variables)]
+<h3 id="using-kmeans-with-linfa-clustering"><a class="header" href="#using-kmeans-with-linfa-clustering">Using KMeans with <code>linfa-clustering</code></a></h3>
+<p>First, we'll start off by importing the dependencies, which can be found in the <code>Cargo.toml</code> file in the <code>code/</code> folder. Note that we need to include both the overall <code>linfa</code> crate, which will provide some of the structuring, as well as the actual KMeans algorithm from the <code>linfa-clustering</code> crate. </p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// Import the linfa prelude and KMeans algorithm
 use linfa::prelude::*;
 use linfa_clustering::KMeans;
+use linfa_nn::distance::L2Dist;
 // We'll build our dataset on our own using ndarray and rand
 use ndarray::prelude::*;
 use rand::prelude::*;
@@ -232,145 +188,145 @@ use rand::prelude::*;
 use plotters::prelude::*;
 <span class="boring">}
 </span></code></pre></pre>
-<p>After importing the dependencies, we'll start off by creating a set of data points that we want to cluster. This data could be imported from somewhere else through a library like <a href="https://github.com/paulkernfeld/ndarray-csv"><code>ndarray_csv</code></a> or <a href="https://github.com/ritchie46/polars"><code>polars</code></a>, but we'll create it manually here for this example. The most important thing is that we end up with an <code>ndarray</code> <code>Array2&lt;f32&gt;</code> data structure.</p>
-<p>For this dataset, we'll get started with a few squares filled with random points, in which each square is defined by a center point, edge length, number of points contained within it's boundaries. Each of those squares should end up having a high-enough density to be the center point of one of our clusters. We'll also create a large, sparse set of points covering all over them to act as background noise, which will help to visually demonstrate how disparate points get assigned to clusters.</p>
+<p>After importing the dependencies, we'll start off by creating a set of data points that we want to cluster. This data could be imported from somewhere else through a library like <a href="https://github.com/paulkernfeld/ndarray-csv"><code>ndarray_csv</code></a> or <a href="https://github.com/ritchie46/polars"><code>polars</code></a>, but we'll create it manually here for this example. The most important thing is that we end up with an <code>ndarray</code> <code>Array2&lt;f32&gt;</code> data structure. </p>
+<p>For this dataset, we'll get started with a few squares filled with random points, in which each square is defined by a center point, edge length, number of points contained within it's boundaries. Each of those squares should end up having a high-enough density to be the center point of one of our clusters. We'll also create a large, sparse set of points covering all over them to act as background noise, which will help to visually demonstrate how disparate points get assigned to clusters. </p>
 <p>Since each of these squares is being created individually, we'll then need to consolidate them along (along the y-axis) by using the <code>ndarray::stack()</code> function, which concatenates arrays along the specified axis.</p>
-<pre><pre class="playpen"><code class="language-rust no_run">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>let square_1: Array2&lt;f32&gt; = create_square([7.0, 5.0], 1.0, 150); // Cluster 1
-let square_2 = create_square([2.0, 2.0], 2.0, 150); // Cluster 2
-let square_3 = create_square([3.0, 8.0], 1.0, 150); // Cluster 3
-let square_4 = create_square([5.0, 5.0], 9.0, 300); // A bunch of noise across them all
+</span>    let square_1: Array2&lt;f32&gt; = create_square([7.0, 5.0], 1.0, 150); // Cluster 1
+    let square_2: Array2&lt;f32&gt; = create_square([2.0, 2.0], 2.0, 150); // Cluster 2
+    let square_3: Array2&lt;f32&gt; = create_square([3.0, 8.0], 1.0, 150); // Cluster 3
+    let square_4: Array2&lt;f32&gt; = create_square([5.0, 5.0], 9.0, 300); // A bunch of noise across them all
 
-let data = ndarray::stack(
-Axis(0),
-&amp;[
-square_1.view(),
-square_2.view(),
-square_3.view(),
-square_4.view(),
-],
-)
-.expect(&quot;An error occurred while stacking the dataset&quot;);
+    let data: Array2&lt;f32&gt; = ndarray::concatenate(
+        Axis(0),
+        &amp;[
+            square_1.view(),
+            square_2.view(),
+            square_3.view(),
+            square_4.view(),
+        ],
+    )
+    .expect(&quot;An error occurred while stacking the dataset&quot;);
 <span class="boring">}
 </span></code></pre></pre>
-<p>Now that we have our data, we'll convert it into the form that linfa uses for training and predicting model, the <code>Dataset</code> type.</p>
-<p>In order to actually build the KMeans algorithm, there are two additional things that we'll need: the number of clusters we're expecting, and a random number generator (RNG). While it is possible to manually define the starting location of each centroid, we often use KMeans in situations where we don't know much about the data ahead of time, so randomly creating them can work just as well. This represents one of the trade-offs of using KMeans; it will always converge towards a minima, it's just not guaranteed that is will be a <em>global</em> minima.</p>
+<p>Now that we have our data, we'll convert it into the form that Linfa uses for training and predicting model, the <code>Dataset</code> type. </p>
+<p>In order to actually build the KMeans algorithm, there are two additional things that we'll need: the number of clusters we're expecting, and a random number generator (RNG). While it is possible to manually define the starting location of each centroid, we often use KMeans in situations where we don't know much about the data ahead of time, so randomly creating them can work just as well. This represents one of the trade-offs of using KMeans; it will always converge towards a minima, it's just not guaranteed that is will be a <em>global</em> minima. </p>
 <p>Using these variables, we can build our model, and set a few additional parameters that may be useful along the way. In this case, those parameters are the maximum number of iterations that we'll allow before stopping, and the tolerance in terms of distance between each iteration that we'll allow before considering our fit to have converged. Finally, we'll run the <code>fit()</code> method against the dataset.</p>
-<pre><pre class="playpen"><code class="language-rust no_run">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>let dataset = DatasetBase::from(data);
-let rng = thread_rng(); // Random number generator
-let n_clusters = 3;
-let model = KMeans::params_with_rng(n_clusters, rng)
-.max_n_iterations(200)
-.tolerance(1e-5)
-.fit(&amp;dataset)
-.expect(&quot;Error while fitting KMeans to the dataset&quot;);
+</span>    let dataset = DatasetBase::from(data);
+    let rng = thread_rng(); // Random number generator
+    let n_clusters = 3;
+    let model = KMeans::params_with(n_clusters, rng, L2Dist)
+        .max_n_iterations(200)
+        .tolerance(1e-5)
+        .fit(&amp;dataset)
+        .expect(&quot;Error while fitting KMeans to the dataset&quot;);
 <span class="boring">}
 </span></code></pre></pre>
-<p>In order to actually get the cluster assignments for the original dataset, however, we'll need to actually run the model against the dataset it was trained on. This may seem a little counter-intuitive, but this two-step process of <code>fit()</code> and <code>predict()</code> helps to make the overall modelling system more flexible.</p>
-<p>Calling the <code>predict()</code> method will also convert the <code>dataset</code> variable from a single <code>Array2&lt;f32&gt;</code> in a pair of arrays <code>(records, targets): (Array2&lt;f32&gt;, Array1&lt;f32&gt;)</code>.</p>
-<pre><pre class="playpen"><code class="language-rust no_run">
-<span class="boring">#![allow(unused_variables)]
+<p>In order to actually get the cluster assignments for the original dataset, however, we'll need to actually run the model against the dataset it was trained on. This may seem a little counter-intuitive, but this two-step process of <code>fit()</code> and <code>predict()</code> helps to make the overall modelling system more flexible. </p>
+<p>Calling the <code>predict()</code> method will also convert the <code>dataset</code> variable from a single <code>Array2&lt;f32&gt;</code> in a pair of arrays <code>(records, targets): (Array2&lt;f32&gt;, Array1&lt;f32&gt;)</code>. </p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>let dataset = model.predict(dataset);
-println!(&quot;{:?}&quot;, dataset.records.shape());
-println!(&quot;{:?}&quot;, dataset.targets.shape());
+</span>    let dataset = model.predict(dataset);
+    println!(&quot;{:?}&quot;, dataset.records.shape());
+    println!(&quot;{:?}&quot;, dataset.targets.shape());
 <span class="boring">}
 </span></code></pre></pre>
 <p>At this point, we have all of our points and their assigned clusters, and we can move onto doing some data visualization! The initial step in that process is setting up the backend, of which the <code>plotters</code> library has several. We'll use the <code>BitMapBackend</code>, which will save the chart we create into a <code>.png</code> image file with a specified name and size.</p>
-<p>A <code>ChartBuilder</code> data structure will be laid on top of the backend, which will actually be responsible for the placing of chart elements like labels, margins, grids, etc. which are all defined by the user. In this case, we want to graph on a two-dimensional Cartesian plane, with both the x- and y-axes set to a range of <code>[0..10]</code>.</p>
-<pre><pre class="playpen"><code class="language-rust no_run">
-<span class="boring">#![allow(unused_variables)]
+<p>A <code>ChartBuilder</code> data structure will be laid on top of the backend, which will actually be responsible for the placing of chart elements like labels, margins, grids, etc. which are all defined by the user. In this case, we want to graph on a two-dimensional Cartesian plane, with both the x- and y-axes set to a range of <code>[0..10]</code>. </p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>let root = BitMapBackend::new(&quot;../src/kmeans.png&quot;, (600, 400)).into_drawing_area();
-root.fill(&amp;WHITE).unwrap();
+</span>    let root = BitMapBackend::new(&quot;target/kmeans.png&quot;, (600, 400)).into_drawing_area();
+    root.fill(&amp;WHITE).unwrap();
 
-let x_lim = 0.0..10.0f32;
-let y_lim = 0.0..10.0f32;
+    let x_lim = 0.0..10.0f32;
+    let y_lim = 0.0..10.0f32;
 
-let mut ctx = ChartBuilder::on(&amp;root)
-.set_label_area_size(LabelAreaPosition::Left, 40) // Put in some margins
-.set_label_area_size(LabelAreaPosition::Right, 40)
-.set_label_area_size(LabelAreaPosition::Bottom, 40)
-.caption(&quot;KMeans Demo&quot;, (&quot;sans-serif&quot;, 25)) // Set a caption and font
-.build_cartesian_2d(x_lim, y_lim)
-.expect(&quot;Couldn't build our ChartBuilder&quot;);
+    let mut ctx = ChartBuilder::on(&amp;root)
+        .set_label_area_size(LabelAreaPosition::Left, 40) // Put in some margins
+        .set_label_area_size(LabelAreaPosition::Right, 40)
+        .set_label_area_size(LabelAreaPosition::Bottom, 40)
+        .caption(&quot;KMeans Demo&quot;, (&quot;sans-serif&quot;, 25)) // Set a caption and font
+        .build_cartesian_2d(x_lim, y_lim)
+        .expect(&quot;Couldn't build our ChartBuilder&quot;);
 <span class="boring">}
 </span></code></pre></pre>
-<p>The final part of this process consists of actually adding in the mesh, and setting up an area for plotting each of the individual data points.</p>
-<pre><pre class="playpen"><code class="language-rust no_run">
-<span class="boring">#![allow(unused_variables)]
+<p>The final part of this process consists of actually adding in the mesh, and setting up an area for plotting each of the individual data points. </p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>ctx.configure_mesh().draw().unwrap();
-let root_area = ctx.plotting_area();
+</span>    ctx.configure_mesh().draw().unwrap();
+    let root_area = ctx.plotting_area();
 <span class="boring">}
 </span></code></pre></pre>
-<p>Before starting to plot, however, we want to make sure that the data we're going to plot is the right shape; a two-dimensional dataset with two columns. Fortunately, a simple helper function has been written to double-check if that is true.</p>
-<pre><pre class="playpen"><code class="language-rust no_run">
-<span class="boring">#![allow(unused_variables)]
+<p>Before starting to plot, however, we want to make sure that the data we're going to plot is the right shape; a two-dimensional dataset with two columns. Fortunately, a simple helper function has been written to double-check if that is true. </p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>// check_array_for_plotting(dataset: &amp;Array2&lt;f32&gt;) -&gt; bool {}
-check_array_for_plotting(&amp;dataset.records); // Panics if that's not true
+</span>    // check_array_for_plotting(dataset: &amp;Array2&lt;f32&gt;) -&gt; bool {}
+    check_array_for_plotting(&amp;dataset.records); // Panics if that's not true
 <span class="boring">}
 </span></code></pre></pre>
-<p>We're now ready to begin plotting! It is possible to plot elements as part of a series, but it's easy (and still quite fast) to do each individually. First, the coordinates from each element get pulled from the <code>dataset.records</code> array. Those coordinates are then used to create a dot, where we pattern-match on the point's assigned cluster from <code>dataset.targets</code> to choose the color.</p>
-<p>Notice that the pattern-matching here is exhaustive! For KMeans, this isn't important, because each point is automatically assigned to a cluster. However, that's not necessarily true for all clustering algorithms, where some less-important data points can be left behind, so it's good practice to make sure that we consider that possibility. Finally, we'll actually draw the chart element we created using that information onto the chart area.</p>
-<pre><pre class="playpen"><code class="language-rust no_run">
-<span class="boring">#![allow(unused_variables)]
+<p>We're now ready to begin plotting! It is possible to plot elements as part of a series, but it's easy (and still quite fast) to do each individually. First, the coordinates from each element get pulled from the <code>dataset.records</code> array. Those coordinates are then used to create a dot, where we pattern-match on the point's assigned cluster from <code>dataset.targets</code> to choose the color. </p>
+<p>Notice that the pattern-matching here is exhaustive! For KMeans, this isn't important, because each point is automatically assigned to a cluster. However, that's not necessarily true for all clustering algorithms, where some less-important data points can be left behind, so it's good practice to make sure that we consider that possibility. Finally, we'll actually draw the chart element we created using that information onto the chart area. </p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>for i in 0..dataset.records.shape()[0] {
-let coordinates = dataset.records.slice(s![i, 0..2]);
+</span>    for i in 0..dataset.records.shape()[0] {
+        let coordinates = dataset.records.slice(s![i, 0..2]);
 
-let point = match dataset.targets[i] {
-0 =&gt; Circle::new(
-(coordinates[0], coordinates[1]),
-3,
-ShapeStyle::from(&amp;RED).filled(),
-),
-1 =&gt; Circle::new(
-(coordinates[0], coordinates[1]),
-3,
-ShapeStyle::from(&amp;GREEN).filled(),
-),
+        let point = match dataset.targets[i] {
+            0 =&gt; Circle::new(
+                (coordinates[0], coordinates[1]),
+                3,
+                ShapeStyle::from(&amp;RED).filled(),
+            ),
+            1 =&gt; Circle::new(
+                (coordinates[0], coordinates[1]),
+                3,
+                ShapeStyle::from(&amp;GREEN).filled(),
+            ),
 
-2 =&gt; Circle::new(
-(coordinates[0], coordinates[1]),
-3,
-ShapeStyle::from(&amp;BLUE).filled(),
-),
-// Making sure our pattern-matching is exhaustive
-_ =&gt; Circle::new(
-(coordinates[0], coordinates[1]),
-3,
-ShapeStyle::from(&amp;BLACK).filled(),
-),
-};
+            2 =&gt; Circle::new(
+                (coordinates[0], coordinates[1]),
+                3,
+                ShapeStyle::from(&amp;BLUE).filled(),
+            ),
+            // Making sure our pattern-matching is exhaustive
+            _ =&gt; Circle::new(
+                (coordinates[0], coordinates[1]),
+                3,
+                ShapeStyle::from(&amp;BLACK).filled(),
+            ),
+        };
 
-root_area
-.draw(&amp;point)
-.expect(&quot;An error occurred while drawing the point!&quot;);
-}
+        root_area
+            .draw(&amp;point)
+            .expect(&quot;An error occurred while drawing the point!&quot;);
+    }
 <span class="boring">}
 </span></code></pre></pre>
 <p>And that's it! Note that there's not separate step for saving the final product, since that's automatically taken care of by our backend. The final visualization of the clusters created by the KMeans algorithm will look like the following:</p>
-<p><img src="kmeans.png" alt="KMeans" /></p>
-<h2><a class="header" href="#using-dbscan-with-linfa-clustering" id="using-dbscan-with-linfa-clustering">Using DBSCAN with <code>linfa-clustering</code></a></h2>
-<h3><a class="header" href="#what-is-the-dbscan-algorithm" id="what-is-the-dbscan-algorithm">What is the DBSCAN algorithm?</a></h3>
-<p>The DBSCAN algorithm (Density-Based Spatial Clustering Algorithm with Noise) was originally published in <a href="https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.121.9220">1996</a>, and has since become one of the most popular and well-known clustering algorithms available.</p>
-<h3><a class="header" href="#comparison-with-kmeans" id="comparison-with-kmeans">Comparison with KMeans</a></h3>
+<p><img src="assets/kmeans.png" alt="KMeans" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="using-dbscan-with-linfa-clustering"><a class="header" href="#using-dbscan-with-linfa-clustering">Using DBSCAN with <code>linfa-clustering</code></a></h2>
+<h3 id="what-is-the-dbscan-algorithm"><a class="header" href="#what-is-the-dbscan-algorithm">What is the DBSCAN algorithm?</a></h3>
+<p>The DBSCAN algorithm (Density-Based Spatial Clustering Algorithm with Noise) was originally published in <a href="https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.121.9220">1996</a>, and has since become one of the most popular and well-known clustering algorithms available. </p>
+<h3 id="comparison-with-kmeans"><a class="header" href="#comparison-with-kmeans">Comparison with KMeans</a></h3>
 <p>Before getting into the code, let's examine how these differences in approach plays out on different types of data. In the images below, both the DBSCAN and KMeans algorithms were applied to the same dataset. The KMeans algorithm was manually set to find 3 clusters (remember, DBSCAN automatically calculates the number of clusters based on the provided parameters).</p>
-<img src="clustering_comparison.png" alt="Comparison" width=600px height=300px align="middle">
+<img src="assets/clustering_comparison.png" alt="Comparison" width=600px height=300px align="middle">
 <p>This example<sup class="footnote-reference"><a href="#1">1</a></sup> demonstrates two of the major strengths of DBSCAN over an algorithm like KMeans; it is able to automatically detect the number of clusters that meet the set of given parameters. Keep in mind that this doesn't mean DBSCAN require less information about the dataset, but rather that the information it does require differs from an algorithm like KMeans.</p>
 <p>DBSCAN does a great job at finding clustering that are spatially contiguous, but not necessarily confined to single region. This is where the &quot;and Noise&quot; part of the algorithm's name comes in. Especially in real-world data, there's often data that won't fit well into a given cluster. These can be outliers or points that don't demonstrate good alignment with any of the main clusters. DBSCAN doesn't require that they do. Instead, it will simply give them a cluster label of <code>None</code> (in our example, these are graphically the black points). However, DBSCAN does a good job at analyzing existing information, it doesn't predict new data, which is one of its main drawbacks</p>
 <p>Comparatively, KMeans will take into account each point in the dataset, which means outliers can negatively affect the local optimal location for a given cluster's centroid in order to accommodate them. Euclidean space is linear, which means that small changes in the data result in proportionately small changes to the position of the centroids. This is problematic when there are outliers in the data.</p>
-<h3><a class="header" href="#using-dsbcan-with-linfa" id="using-dsbcan-with-linfa">Using DSBCAN with <code>linfa</code></a></h3>
-<p>Compared to</p>
-<pre><pre class="playpen"><code class="language-rust no_run">
-<span class="boring">#![allow(unused_variables)]
+<h3 id="using-dsbcan-with-linfa"><a class="header" href="#using-dsbcan-with-linfa">Using DSBCAN with <code>linfa</code></a></h3>
+<p>Compared to </p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>// Import the linfa prelude and KMeans algorithm
 use linfa::prelude::*;
@@ -382,86 +338,191 @@ use plotters::prelude::*;
 <span class="boring">}
 </span></code></pre></pre>
 <p>Instead of having a several higher-density clusters different areas, we'll take advantage of DBSCAN's ability to follow spatially-contiguous non-localized clusters by building our data out of both filled and hollow circles, with some random noise tossed in as well. The end goal will be to re-find each of these clusters, and exclude some of the noise!</p>
-<pre><pre class="playpen"><code class="language-rust no_run">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>// The goal is to be able to find each of these as distinct, and exclude some of the noise
-let circle: Array2&lt;f32&gt; = create_circle([5.0, 5.0], 1.0, 100); // Cluster 0
-let donut_1: Array2&lt;f32&gt; = create_hollow_circle([5.0, 5.0], [2.0, 3.0], 400); // Cluster 1
-let donut_2: Array2&lt;f32&gt; = create_hollow_circle([5.0, 5.0], [4.5, 4.75], 1000); // Cluster 2
-let noise: Array2&lt;f32&gt; = create_square([5.0, 5.0], 10.0, 100); // Random noise
+</span>    // The goal is to be able to find each of these as distinct, and exclude some of the noise
+    let circle: Array2&lt;f32&gt; = create_circle([5.0, 5.0], 1.0, 100); // Cluster 0
+    let donut_1: Array2&lt;f32&gt; = create_hollow_circle([5.0, 5.0], [2.0, 3.0], 400); // Cluster 1
+    let donut_2: Array2&lt;f32&gt; = create_hollow_circle([5.0, 5.0], [4.5, 4.75], 1000); // Cluster 2
+    let noise: Array2&lt;f32&gt; = create_square([5.0, 5.0], 10.0, 100); // Random noise
 
-let data = ndarray::stack(Axis(0), &amp;[circle.view(), donut_1.view(), donut_2.view(), noise.view()])
-.expect(&quot;An error occurred while stacking the dataset&quot;);
+    let data = ndarray::concatenate(
+        Axis(0),
+        &amp;[circle.view(), donut_1.view(), donut_2.view(), noise.view()],
+    )
+    .expect(&quot;An error occurred while stacking the dataset&quot;);
 <span class="boring">}
 </span></code></pre></pre>
 <p>Compared to <code>linfa</code>'s KMeans algorithm, the DBSCAN implementation is able to operate directly on a ndarray <code>Array2</code> data structure, so there's no need to convert it into the <code>linfa</code>-native <code>Dataset</code> type first. It's also worth pointing out that choosing the chosen parameters often take some experimentation and tuning before they produce results that actually make sense. This is one of the areas where data visualization can be really valuable; it is helpful in developing some spatial intuition about your data set and understand how your choice of hyperparameters will affect the results produced by the algorithm.</p>
-<pre><pre class="playpen"><code class="language-rust no_run">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>// Compared to linfa's KMeans algorithm, the DBSCAN implementation can operate
-// directly on an ndarray `Array2` data structure, so there's no need to convert it
-// into the linfa-native `Dataset` first.
-let min_points = 20;
-let clusters = Dbscan::params(min_points).tolerance(0.6).transform(&amp;data);
-println!(&quot;{:#?}&quot;, clusters);
+</span>    // Compared to linfa's KMeans algorithm, the DBSCAN implementation can operate
+    // directly on an ndarray `Array2` data structure, so there's no need to convert it
+    // into the linfa-native `Dataset` first.
+    let min_points = 20;
+    let clusters = Dbscan::params(min_points)
+        .tolerance(0.6)
+        .transform(&amp;data)
+        .unwrap();
+    println!(&quot;{:#?}&quot;, clusters);
 <span class="boring">}
 </span></code></pre></pre>
-<p>We'll skip over setting up <code>ChartBuilder</code> struct and drawing areas from the <code>plotters</code> crate, since it's exactly the same as in the <a href="./3_kmeans.html">KMeans</a> example.</p>
+<p>We'll skip over setting up <code>ChartBuilder</code> struct and drawing areas from the <code>plotters</code> crate, since it's exactly the same as in the <a href="./3_kmeans.html">KMeans</a> example. </p>
 <p>Remember how we mentioned DBSCAN is an algorithm that can exclude noise? That's particularly important for the pattern-matching in this case, since we're almost guaranteed to end up with some values that don't fit nicely into any of our expected clusters. Since we generated an artificial dataset, we know the number of clusters that should be generated, and where they're located. However, that won't always be the case. In that situation, we could instead examine the number of clusters afterwards, create a colormap using custom RGB colors which matches the highest number of clusters, and plot it that way.</p>
-<pre><pre class="playpen"><code class="language-rust no_run">
-<span class="boring">#![allow(unused_variables)]
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>for i in 0..data.shape()[0] {
-let coordinates = data.slice(s![i, 0..2]);
+</span>    for i in 0..data.shape()[0] {
+        let coordinates = data.slice(s![i, 0..2]);
 
-let point = match clusters[i] {
-Some(0) =&gt; Circle::new(
-(coordinates[0], coordinates[1]),
-3,
-ShapeStyle::from(&amp;RED).filled(),
-),
-Some(1) =&gt; Circle::new(
-(coordinates[0], coordinates[1]),
-3,
-ShapeStyle::from(&amp;GREEN).filled(),
-),
-Some(2) =&gt; Circle::new(
-(coordinates[0], coordinates[1]),
-3,
-ShapeStyle::from(&amp;BLUE).filled(),
-),
-// Making sure our pattern-matching is exhaustive
-// Note that we can define a custom color using RGB
-_ =&gt; Circle::new(
-(coordinates[0], coordinates[1]),
-3,
-ShapeStyle::from(&amp;RGBColor(255,255,255)).filled(),
-),
-};
+        let point = match clusters[i] {
+            Some(0) =&gt; Circle::new(
+                (coordinates[0], coordinates[1]),
+                3,
+                ShapeStyle::from(&amp;RED).filled(),
+            ),
+            Some(1) =&gt; Circle::new(
+                (coordinates[0], coordinates[1]),
+                3,
+                ShapeStyle::from(&amp;GREEN).filled(),
+            ),
+            Some(2) =&gt; Circle::new(
+                (coordinates[0], coordinates[1]),
+                3,
+                ShapeStyle::from(&amp;BLUE).filled(),
+            ),
+            // Making sure our pattern-matching is exhaustive
+            // Note that we can define a custom color using RGB
+            _ =&gt; Circle::new(
+                (coordinates[0], coordinates[1]),
+                3,
+                ShapeStyle::from(&amp;RGBColor(255, 255, 255)).filled(),
+            ),
+        };
 
-root_area
-.draw(&amp;point)
-.expect(&quot;An error occurred while drawing the point!&quot;);
-}
+        root_area
+            .draw(&amp;point)
+            .expect(&quot;An error occurred while drawing the point!&quot;);
+    }
 <span class="boring">}
 </span></code></pre></pre>
 <p>As a result, we then get the following chart, where each cluster is uniquely identified, and some of the random noise associated with the dataset is discarded.</p>
-<p><img src="dbscan.png" alt="DBSCAN" /></p>
+<img src="assets/dbscan.png" alt="DBSCAN" width=500px height=450px align="middle">
 <hr />
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
-<p>This code for this comparison is actually separate from the main DBSCAN example. It can be found at <code>code/examples/clustering_comparison.rs</code>.</p>
+<p>This code for this comparison is actually separate from the main DBSCAN example. It can be found at <code>examples/clustering_comparison.rs</code>.</p>
 </div>
-<h1><a class="header" href="#bibliography" id="bibliography">Bibliography</a></h1>
-<dl class="bib2xhtml"><!-- Authors: Amir Avni Boaz Rafaely --><dt><a id="iacc">[AA09]</a></dt><dd>Boaz Rafaely Amir Avni.Interaural cross correlation and spatial correlation in a sound field  represented by Spherical Harmonics.In <cite>Ambisonics Symposium</cite>, 2009.</dd><!-- Authors: Andeggs --><dt><a id="wikimedia">[And09]</a></dt><dd>Andeggs.<a href="https://upload.wikimedia.org/wikipedia/commons/4/4f/3D_Spherical.svg">3d  spherical coordinates</a>, 2009.[Online; accessed August 20, 2017].</dd><!-- Authors: Audio Research Lab --><dt><a id="step">[Aud16]</a></dt><dd>Audio Research Lab.<cite>Subjective Training and Evaluation Program (STEP)</cite>, 2016.</dd><!-- Authors: Boaz Rafaely --><dt><a id="sampling">[Boa15]</a></dt><dd>Rafaely Boaz.<cite>Fundementals of Spherical Array Processing</cite>.Springer, 2015.</dd><!-- Authors: Thomas Buelow --><dt><a id="convolution">[Bue01]</a></dt><dd>Thomas Buelow.Spherical diffusion for surface smoothing and denoising, 2001.</dd><!-- Authors: Clapp Samuel W and Guthrie Anne E and Braasch Jonas and Xiang  Ning --><dt><a id="maxre">[CGBX13]</a></dt><dd>Samuel W. Clapp,  Anne E. Guthrie, Jonas Braasch, and  Ning Xiang.Using Ambisonics to reconstruct measured soundfields.In <cite>Audio Engineering Society Convention 135</cite>, 2013.</dd><!-- Authors: Qing Chen --><dt><a id="imagemoments">[Che03]</a></dt><dd>Qing Chen.Evaluation of ocr algorithms for images with different spatial resolutions and  noises, 2003.</dd><!-- Authors: C Nachbar F Zotter E Deleflie and A Sontacchi --><dt><a id="ambix">[CNS11]</a></dt><dd>E. Deleflie C. Nachbar,  F. Zotter and A. Sontacchi.Ambix - a suggested ambisonics format.In <cite>Ambisonics Symposium</cite>, 2011.</dd><!-- Authors: Daniel Jerome --><dt><a id="nfc1">[Dan03]</a></dt><dd>Jerome Daniel.Spatial sound encoding including near field effect: Introducing distance coding  filters and a viable, new Ambisonic format.In <cite>Audio Engineering Society Conference: 23rd International Conference:  Signal Processing in Audio Recording and Reproduction</cite>, 2003.</dd><!-- Authors: DM Healy Jr D Rockmore P J Kostelec and Sean S B Moore --><dt><a id="shfft">[DHJM98]</a></dt><dd>P. J. Kostelec D.M.  Healy Jr., D. Rockmore and Sean S. B. Moore.FFTs for the 2-sphere - improvements and variation.<cite>Journal of Fourier Analysis and Applications</cite>, 9(4):341–385,  1998.</dd><!-- Authors: A R DiDonato --><dt><a id="legendreintegral">[DiD82]</a></dt><dd>A. R.  DiDonato.Recurrence relations for the indefinite integrals of the associated legendre  functions.<cite>Mathematics of Computation</cite>, 38(158):547–551, 1982.</dd><!-- Authors: Heinz W Engl --><dt><a id="tikhonov">[Eng87]</a></dt><dd>Heinz W Engl.On the choice of the regularization parameter for iterated tikhonov  regularization of iii-posed problems.<cite>Journal of Approximation Theory</cite>, 49(1):55–63, 1987.</dd><!-- Authors: Franz Zotter Matthias Frank and Hannes Pomberger --><dt><a id="modematchingsvd">[FZP13]</a></dt><dd>Matthias Frank  Franz Zotter and Hannes Pomberger.Comparison of energy-preserving and all-round Ambisonic decoders.In <cite>Fortschritte der Akustik, AIA-DAGA</cite>, 2013.</dd><!-- Authors: Herre Jürgen and Hilpert Johannes and Kuntz Achim and Plogsties  Jan --><dt><a id="mpegh">[HHKP15]</a></dt><dd>Jürgen Herre,  Johannes Hilpert, Achim Kuntz, and  Jan Plogsties.MPEG-H audio—the new standard for universal spatial/3d audio coding.<cite>J. Audio Eng. Soc</cite>, 62:821–830, 2015.</dd><!-- Authors: R H Hardin and N J A Sloane --><dt><a id="hardinsloane">[HS96]</a></dt><dd>R. H. Hardin and  N. J. A. Sloane.Mclaren's improved snub cube and other new spherical designs in three  dimensions.<cite>Discrete Computational Geometry</cite>, 15:429–441, 1996.</dd><!-- Authors: Hahn Nara and Spors Sascha --><dt><a id="nfc2">[HS17]</a></dt><dd>Nara Hahn and  Sascha Spors.Further investigations on the design of radial filters for the driving  functions of Near-Field Compensated Higher-Order Ambisonics.In <cite>Audio Engineering Society Convention 142</cite>, 2017.</dd><!-- Authors: M A Poletti --><dt><a id="modematching">[Pol05]</a></dt><dd>M. A. Poletti.Three-dimensional surround sound systems based on Spherical Harmonics.<cite>J. Audio Eng. Soc</cite>, 53(11):1004–1025, 2005.</dd><!-- Authors: Lord Rayleigh --><dt><a id="itdild">[Ray07]</a></dt><dd>Lord Rayleigh.On our perception of sound direction.13(74):214–232, 1907.</dd><!-- Authors: Scaini Davide and Arteaga Daniel --><dt><a id="idhoa">[SA14]</a></dt><dd>Davide Scaini and  Daniel Arteaga.Decoding of higher order ambisonics to irregular periphonic loudspeaker arrays.In <cite>Audio Engineering Society Conference: 55th International Conference:  Spatial Audio</cite>, Aug 2014.</dd><!-- Authors: Sakurai JJ and Napolitano J --><dt><a id="clebschgordan">[SN11]</a></dt><dd>J.J. Sakurai and  J. Napolitano.<cite>Modern Quantum Mechanics</cite>.Pearson, 2011.</dd><!-- Authors: Ville Pulkki Jyri Huopaniemi Tommi Huotilainen and Matti  Karjalainen --><dt><a id="vbap">[vba96]</a></dt><dd><cite>DSP Approach to Multichannel  Audio Mixing</cite>. ICMC, 1996.</dd><!-- Authors: Peter Young --><dt><a id="helmholtz">[You09]</a></dt><dd>Peter Young.Helmholtz's and laplace's equations in spherical polar coordinates: Spherical  harmonics and spherical Bessel functions, 2009.</dd><!-- Authors: Zotter Franz and Frank Matthias --><dt><a id="allrad">[ZF12]</a></dt><dd>Franz Zotter and  Matthias Frank.All-round Ambisonic panning and decoding.<cite>J. Audio Eng. Soc</cite>, 60(10):807–820, 2012.</dd><!-- Authors: Franz Zotter and Hannes Pomberger --><dt><a id="modematchingimprove">[ZP10]</a></dt><dd>Franz  Zotter and Hannes Pomberger.Ambisonic decoding with and without Mode-Matching: A case study using the  hemisphere.2010.</dd>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="linear-regression"><a class="header" href="#linear-regression">Linear Regression</a></h2>
+<p>Now that we've gotten some clustering under our belt, let's take a look at one of the other common data science tasks: linear regression on two-dimensional data. This example includes code for both calculating the linear equation using <code>linfa</code>, as well as code for plotting both the data and line on a single graph using the <code>plotters</code> library. </p>
+<p>Per usual, we'll create some data using one of our built-in functions. This simply creates an <code>Array2&lt;f64&gt;</code> with two columns, one of which will be our x-axis and the other our y-axis. We're generating this artificially, but remember, we could get this from a real data source like processing a CSV file or reading in values from a sensor.</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    let array: Array2&lt;f64&gt; = linfa_book::create_curve(1.0, 1.0, 0.0, 50, [0.0, 7.0]);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Now that we have the initial data, let's break that down into something that we can use for our regression; a <code>data</code> array and a <code>target</code> array. Fortunately, this is pretty simple with the <code>slice()</code> and <code>column()</code> functions provided by <code>ndarray</code>. We're also going to want to grab the maximum values for our arrays (and round them up to the nearest integer using the <code>ceil()</code> function) to be used for plotting those values a little bit later. </p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    // Converting from an array to a Linfa Dataset can be the trickiest part of this process
+    let (data, targets) = (
+        array.slice(s![.., 0..1]).to_owned(),
+        array.column(1).to_owned(),
+    );
+
+    let x_max = data.max().unwrap().ceil();
+    let y_max = targets.max().unwrap().ceil();
+<span class="boring">}
+</span></code></pre></pre>
+<p>Once the data is formatted, we'll be able to nicely add it into the <code>linfa</code>-native <code>Dataset</code> format, along with the appropriate feature names. If you're running into funky error related to array shapes in your code, this section and the step before (where we create our <code>data</code> and <code>target</code> data structures) are ones you should double-check; dynamically-shaped arrays as found in most scientific computing libraries, Rust-based or not, can be tricky. </p>
+<p>In fact, as you may have experienced yourself, it's very common that the pre-processing steps of many data science problems (filtering, formatting, distributing, etc.) are actually the most complicated and often where a little bit of additional effort can save you a lot of trouble down the road.</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    let dataset = Dataset::new(data, targets).with_feature_names(vec![&quot;x&quot;, &quot;y&quot;]);
+<span class="boring">}
+</span></code></pre></pre>
+<p>However, now we have our data formatted properly and in the <code>Dataset</code> format, actually running the regression is pretty simple; we only need to create our <code>LinearRegression</code> object and fit it to the dataset. </p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    let lin_reg = LinearRegression::new();
+    let model = lin_reg.fit(&amp;dataset).unwrap();
+<span class="boring">}
+</span></code></pre></pre>
+<p>We're going to leave out a little bit of the boilerplate (check the repository for the full example code), but you'll notice that when we set up our chart context, we'll use the rounded maximum values in both the <code>data</code> and <code>target</code> arrays to set our maximum chart range (as mentioned earlier).</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    let mut ctx = ChartBuilder::on(&amp;root_area)
+        .set_label_area_size(LabelAreaPosition::Left, 40)
+        .set_label_area_size(LabelAreaPosition::Bottom, 40)
+        .caption(&quot;Legend&quot;, (&quot;sans-serif&quot;, 40))
+        .caption(&quot;Linear Regression&quot;, (&quot;sans-serif&quot;, 40))
+        .build_cartesian_2d(0.0..x_max + 1.0, 0.0..y_max + 1.0)
+        .unwrap();
+<span class="boring">}
+</span></code></pre></pre>
+<p>Now that the chart is good to go, we'll start off by drawing our best fit line using the linear equation we derived above. We can't just supply the equation and let the plotting figure it out; instead, what we'll do it create series of points that exactly match this equation at regular intervals, and connect those with a smooth, continuous line. If this seems clunky, just remember: we have a nice, smooth solution this time around, but that might not always be the case. In the future, we might want more complicated polynomial, or even a discontinuous function. This approach (smoothly connecting an arbitrary set of points) is applicable to a wide variety of potential applications.</p>
+<p>Once we add our line, we'll also want a nice label, with a set level of precision; this will be added to the legend once our chart is complete.</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    let mut line_points = Vec::with_capacity(2);
+    for i in (0..8i32).step_by(1) {
+        line_points.push((i as f64, (i as f64 * model.params()[0]) + model.intercept()));
+    }
+    // We can configure the rounded precision of our result here
+    let precision = 2;
+    let label = format!(
+        &quot;y = {:.2$}x + {:.2}&quot;,
+        model.params()[0],
+        model.intercept(),
+        precision
+    );
+    ctx.draw_series(LineSeries::new(line_points, &amp;BLACK))
+        .unwrap()
+        .label(&amp;label);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Now that the line is present, we can add our points; this should look very familiar, as we're functionally doing something similar to the clustering examples we've already put together. </p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    let num_points = array.shape()[0];
+    let mut points = Vec::with_capacity(num_points);
+    for i in 0..array.shape()[0] {
+        let point = (array[[i, 0]], array[[i, 1]]);
+        let circle = Circle::new(point, 5, &amp;RED);
+        points.push(circle);
+    }
+
+    ctx.draw_series(points).unwrap();
+<span class="boring">}
+</span></code></pre></pre>
+<p>Finally, we'll configure the labels that we'll assigned to each of the series that we've drawn on the chart.</p>
+<pre><pre class="playground"><code class="language-rust no_run">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    ctx.configure_series_labels()
+        .border_style(&amp;BLACK)
+        .background_style(&amp;WHITE.mix(0.8))
+        .draw()
+        .unwrap();
+<span class="boring">}
+</span></code></pre></pre>
+<p>And we're done (ooooh, ahhhh, pretty)!</p>
+<img src="assets/linear_regression.png" alt="linear regression" width=600px height=400px align="middle">
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-
                         
-
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -469,48 +530,35 @@ root_area
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-
-                
-            </nav>
+                            </nav>
 
         </div>
 
         
-
-        
-
         
         
-        
-        <script type="text/javascript">
-            window.playpen_copyable = true;
+                <script type="text/javascript">
+            window.playground_copyable = true;
         </script>
         
-
         
-
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
         
-
         <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         
-
-        
-        
-        <script type="text/javascript">
+                        <script type="text/javascript">
         window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
         });
         </script>
-        
-        
-
+                
     </body>
 </html>

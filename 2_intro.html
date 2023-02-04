@@ -4,6 +4,9 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Introduction to Machine Learning with Rust - Rust Machine Learning Book</title>
+                
+
+        <!-- Custom HTML head -->
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -11,17 +14,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
-
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
-
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
@@ -29,16 +32,14 @@
 
         <!-- Custom theme stylesheets -->
         
-        <link rel="stylesheet" href="src/scientific.css">
-        
-
-        
-    </head>
+                <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+            </head>
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -83,8 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li><li class="chapter-item expanded "><a href="2_intro.html" class="active"><strong aria-hidden="true">2.</strong> Introduction to Machine Learning with Rust</a></li><li class="chapter-item expanded "><a href="3_kmeans.html"><strong aria-hidden="true">3.</strong> Getting Started With The KMeans Algorithm</a></li><li class="chapter-item expanded "><a href="4_dbscan.html"><strong aria-hidden="true">4.</strong> Clustering with DBSCAN</a></li><li class="chapter-item expanded affix "><a href="bibliography.html">Bibliography</a></li></ol>
-            </div>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="2_intro.html" class="active"><strong aria-hidden="true">1.</strong> Introduction to Machine Learning with Rust</a></li><li class="chapter-item expanded "><a href="3_kmeans.html"><strong aria-hidden="true">2.</strong> Getting Started With The KMeans Algorithm</a></li><li class="chapter-item expanded "><a href="4_dbscan.html"><strong aria-hidden="true">3.</strong> Clustering with DBSCAN</a></li><li class="chapter-item expanded "><a href="5_linear_regression.html"><strong aria-hidden="true">4.</strong> Linear Regression</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -108,27 +108,24 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
-                    </div>
+                                            </div>
 
                     <h1 class="menu-title">Rust Machine Learning Book</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
+                                                                        
                     </div>
                 </div>
 
-                
-                <div id="search-wrapper" class="hidden">
+                                <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -137,7 +134,6 @@
                     </div>
                 </div>
                 
-
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -149,39 +145,31 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#introduction-to-machine-learning-with-rust" id="introduction-to-machine-learning-with-rust">Introduction to Machine Learning with Rust</a></h1>
-<h2><a class="header" href="#what-is-this-book-for" id="what-is-this-book-for">What is this book for?</a></h2>
+                        <h1 id="introduction-to-machine-learning-with-rust"><a class="header" href="#introduction-to-machine-learning-with-rust">Introduction to Machine Learning with Rust</a></h1>
+<h2 id="what-is-this-book-for"><a class="header" href="#what-is-this-book-for">What is this book for?</a></h2>
 <p>This book aims to provide an accessible introduction to machine learning and data science in the Rust ecosystem. Each chapter will have the description of an algorithm, and walk through a code example from start to finish.</p>
-<h2><a class="header" href="#who-is-this-book-for" id="who-is-this-book-for">Who is this book for?</a></h2>
-<p>This book is written with two primary audiences in mind: developers who are familiar with machine learning and want to write their code Rust, and developers who are familiar with Rust and want to do some machine learning.</p>
+<h2 id="who-is-this-book-for"><a class="header" href="#who-is-this-book-for">Who is this book for?</a></h2>
+<p>This book is written with two primary audiences in mind: developers who are familiar with machine learning and want to write their code Rust, and developers who are familiar with Rust and want to do some machine learning. </p>
 <p>In both cases, we generally assume a basic level of understanding of the Rust programming language, although mastery is certainly not required! If you're brand new to the language, it's suggested to start off by reading <a href="https://doc.rust-lang.org/book/"><em>The Rust Programming Language</em></a>, then returning when you feel a little more comfortable. In particular, it's worth reviewing the sections on <a href="https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html">ownership</a>, <a href="https://doc.rust-lang.org/book/ch09-00-error-handling.html">error handling</a>, and <a href="https://doc.rust-lang.org/book/ch13-00-functional-features.html">functional features</a>. Perhaps just as importantly as Rust's syntax, a familiarity with the library/crates ecosystem and documentation practices will prove very valuable. Machine learning in many cases sits near the top of the stack; especially when one is working with data, there are usually several layers of code beneath what the top one is doing. That's one of the benefits of working in Rust; these lower layers are often also written in Rust, which makes the abstraction more transparent and empowers developers to dig fearlessly into the underlying aspects of these programs.</p>
 <p>Conversely, we don't assume an in-depth knowledge of machine learning (i.e. mathematical familiarity of the field). Some familiarity with the algorithms may be helpful, but the descriptions and code contained in here should help to build a foundation of some of these topics.</p>
-<h2><a class="header" href="#how-to-use-this-book" id="how-to-use-this-book">How to use this book</a></h2>
-<p>Each chapter's code sample will be available in its entirety in the <code>code/</code> directory, and can be run independently of the book. For example, to run the entirety of the code example for the KMeans algorithm, the steps would look like the following:</p>
+<h2 id="how-to-use-this-book"><a class="header" href="#how-to-use-this-book">How to use this book</a></h2>
+<p>Each chapter's code sample is available (and the plots generated) from the code available under the <code>examples</code> directory, and can be run independently of the book. For example, to run the entirety of the code example for the KMeans algorithm, you would do the following:</p>
 <pre><code class="language-bash"># From repo directory
-cd code
-cargo run --release --example kmeans
+$ cargo run --release --example kmeans
 </code></pre>
-<h2><a class="header" href="#an-additional-note" id="an-additional-note">An additional note</a></h2>
+<h2 id="an-additional-note"><a class="header" href="#an-additional-note">An additional note</a></h2>
 <p>Like much of Rust, many of the libraries in this ecosystem empower people to write code that they might otherwise not feel able to write otherwise. Machine learning provides a really interesting and useful set of tools. That is a great benefit! However, as the saying goes, with great power comes great responsibility. This means that <strong>it is the responsibility of each developer individually, and the community as a whole, to make sure that the code we write is not being used in harmful ways and make ethical decisions surrounding our work.</strong></p>
-<p>As a start, we suggest making yourself familiar with some of the resources that have been collected by the Institute for Ethical Machine Learning <a href="https://github.com/EthicalML/awesome-artificial-intelligence-guidelines">here</a>.</p>
+<p>As a start, we suggest making yourself familiar with some of the resources that have been collected by the Institute for Ethical Machine Learning <a href="https://github.com/EthicalML/awesome-artificial-intelligence-guidelines">here</a>. </p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="chapter_1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        
-
-                        
-                            <a rel="next" href="3_kmeans.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                                    <a rel="next" href="3_kmeans.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
-
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -189,48 +177,31 @@ cargo run --release --example kmeans
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="chapter_1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                
-
-                
-                    <a rel="next" href="3_kmeans.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                    <a rel="next" href="3_kmeans.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                
-            </nav>
+                            </nav>
 
         </div>
 
         
-
-        
-
         
         
-        
-        <script type="text/javascript">
-            window.playpen_copyable = true;
+                <script type="text/javascript">
+            window.playground_copyable = true;
         </script>
         
-
         
-
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
         
-
         <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         
-
         
-
     </body>
 </html>
