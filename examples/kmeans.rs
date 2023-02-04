@@ -3,7 +3,7 @@ use linfa_book::*;
 // Import the linfa prelude and KMeans algorithm
 use linfa::prelude::*;
 use linfa_clustering::KMeans;
-use linfa_nn::distance::LInfDist;
+use linfa_nn::distance::L2Dist;
 // We'll build our dataset on our own using ndarray and rand
 use ndarray::prelude::*;
 use rand::prelude::*;
@@ -34,7 +34,7 @@ fn main() {
     let dataset = DatasetBase::from(data);
     let rng = thread_rng(); // Random number generator
     let n_clusters = 3;
-    let model = KMeans::params_with(n_clusters, rng, LInfDist)
+    let model = KMeans::params_with(n_clusters, rng, L2Dist)
         .max_n_iterations(200)
         .tolerance(1e-5)
         .fit(&dataset)

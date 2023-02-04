@@ -7,7 +7,7 @@ KMeans is one of the most common clustering algorithms, where a set of unlabeled
 The centroid of a cluster is calculated as the mean, or average, of the points assigned to that cluster. The [`linfa`](https://github.com/rust-ml/linfa) crate provides an implementation of the standard algorithm for this process, known as "Lloyd's algorithm."
 
 KMeans is_iterative_, meaning that it progressively refines the points assigned to each cluster, and therefore a new centroid for that cluster (leading to new points being assigned to it) during each successive iteration. At a high level, there are three main steps to the algorithm: 
-1. **Initialisation**: Choose our initial set of centroids--this can happen randomly or be set by the user, but the number of clusters/centroids is always defined ahead of time in KMeans
+1. **Initialization**: Choose our initial set of centroids--this can happen randomly or be set by the user, but the number of clusters/centroids is always defined ahead of time in KMeans
 2. **Assignment**: Assign each observation to the nearest cluster (minimum distance between the observation and the cluster's centroid);
 3. **Update**: Recompute the centroid of each cluster.
 
@@ -31,7 +31,7 @@ Since each of these squares is being created individually, we'll then need to co
 {{#include ../examples/kmeans.rs:create_squares}}
 ```
 
-Now that we have our data, we'll convert it into the form that linfa uses for training and predicting model, the `Dataset` type. 
+Now that we have our data, we'll convert it into the form that Linfa uses for training and predicting model, the `Dataset` type. 
 
 In order to actually build the KMeans algorithm, there are two additional things that we'll need: the number of clusters we're expecting, and a random number generator (RNG). While it is possible to manually define the starting location of each centroid, we often use KMeans in situations where we don't know much about the data ahead of time, so randomly creating them can work just as well. This represents one of the trade-offs of using KMeans; it will always converge towards a minima, it's just not guaranteed that is will be a *global* minima. 
 

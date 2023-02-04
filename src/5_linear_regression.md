@@ -1,13 +1,13 @@
 ## Linear Regression
 
-Now that we've gotten some clustering under our belt, let's take a look at one of the other common data science tasks: linear regression on two-dimensional data. This example includes code for both calcuating the linear equation using `linfa`, as well as code for plotting both the data and line on a single graph using the `plotters` library. 
+Now that we've gotten some clustering under our belt, let's take a look at one of the other common data science tasks: linear regression on two-dimensional data. This example includes code for both calculating the linear equation using `linfa`, as well as code for plotting both the data and line on a single graph using the `plotters` library. 
 
 Per usual, we'll create some data using one of our built-in functions. This simply creates an `Array2<f64>` with two columns, one of which will be our x-axis and the other our y-axis. We're generating this artificially, but remember, we could get this from a real data source like processing a CSV file or reading in values from a sensor.
 
 ```rust,no_run
 {{#include ../examples/linear_regression.rs:create_data}}
 ```
-Now that we have the initial data, let's break that down into someting that we can use for our regression; a `data` array and a `target` array. Fortunately, this is pretty simple with the `slice()` and `column()` functions provided by `ndarray`. We're also going to want to grab the maximum values for our arrays (and round them up to the nearest integer using the `ceil()` function) to be used for plotting those values a little bit later. 
+Now that we have the initial data, let's break that down into something that we can use for our regression; a `data` array and a `target` array. Fortunately, this is pretty simple with the `slice()` and `column()` functions provided by `ndarray`. We're also going to want to grab the maximum values for our arrays (and round them up to the nearest integer using the `ceil()` function) to be used for plotting those values a little bit later. 
 
 ```rust,no_run
 {{#include ../examples/linear_regression.rs:data_format}}
@@ -15,7 +15,7 @@ Now that we have the initial data, let's break that down into someting that we c
 
 Once the data is formatted, we'll be able to nicely add it into the `linfa`-native `Dataset` format, along with the appropriate feature names. If you're running into funky error related to array shapes in your code, this section and the step before (where we create our `data` and `target` data structures) are ones you should double-check; dynamically-shaped arrays as found in most scientific computing libraries, Rust-based or not, can be tricky. 
 
-In fact, as you may have experienced yourself, it's very common that the pre-processing steps of many data science problems (filtering, formatting, distributing, etc.) are actually the most complicated and often where a little bit of additioanl effort can save you a lot of trouble down the road.
+In fact, as you may have experienced yourself, it's very common that the pre-processing steps of many data science problems (filtering, formatting, distributing, etc.) are actually the most complicated and often where a little bit of additional effort can save you a lot of trouble down the road.
 
 ```rust,no_run
 {{#include ../examples/linear_regression.rs:build_dataset}}
