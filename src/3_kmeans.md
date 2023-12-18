@@ -24,7 +24,7 @@ After importing the dependencies, we'll start off by creating a set of data poin
 
 For this dataset, we'll get started with a few squares filled with random points, in which each square is defined by a center point, edge length, number of points contained within it's boundaries. Each of those squares should end up having a high-enough density to be the center point of one of our clusters. We'll also create a large, sparse set of points covering all over them to act as background noise, which will help to visually demonstrate how disparate points get assigned to clusters. 
 
-Since each of these squares is being created individually, we'll then need to consolidate them along (along the y-axis) by using the `ndarray::stack()` function, which concatenates arrays along the specified axis.
+Since each of these squares is being created individually, we'll then need to consolidate them along (along the y-axis) by using the `ndarray::concatenate()` function, which concatenates arrays along the specified axis.
 
  
 ```rust,no_run
