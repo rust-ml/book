@@ -174,7 +174,7 @@ use plotters::prelude::*;
 </span></code></pre></pre>
 <p>After importing the dependencies, we'll start off by creating a set of data points that we want to cluster. This data could be imported from somewhere else through a library like <a href="https://github.com/paulkernfeld/ndarray-csv"><code>ndarray_csv</code></a> or <a href="https://github.com/ritchie46/polars"><code>polars</code></a>, but we'll create it manually here for this example. The most important thing is that we end up with an <code>ndarray</code> <code>Array2&lt;f32&gt;</code> data structure. </p>
 <p>For this dataset, we'll get started with a few squares filled with random points, in which each square is defined by a center point, edge length, number of points contained within it's boundaries. Each of those squares should end up having a high-enough density to be the center point of one of our clusters. We'll also create a large, sparse set of points covering all over them to act as background noise, which will help to visually demonstrate how disparate points get assigned to clusters. </p>
-<p>Since each of these squares is being created individually, we'll then need to consolidate them along (along the y-axis) by using the <code>ndarray::stack()</code> function, which concatenates arrays along the specified axis.</p>
+<p>Since each of these squares is being created individually, we'll then need to consolidate them along (along the y-axis) by using the <code>ndarray::concatenate()</code> function, which concatenates arrays along the specified axis.</p>
 <pre><pre class="playground"><code class="language-rust no_run">
 <span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
